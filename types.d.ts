@@ -9,3 +9,8 @@ interface Window {
     request<T = any>(args: any): Promise<T>;
   };
 }
+
+type User = {
+  email: string;
+  imageUrl?: string;
+};

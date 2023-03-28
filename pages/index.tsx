@@ -4,8 +4,13 @@ import Wallet from '../components/Wallet';
 import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
 import { useMetamask } from '../hooks/useMetamask';
+import { GetServerSidePropsContext } from 'next/types';
 
-export default function HomePage({ user }) {
+interface IndexPageProps {
+  user: User;
+}
+
+export default function IndexPage({ user }: IndexPageProps) {
   const { dispatch } = useMetamask();
   const listen = useListen();
 
@@ -43,7 +48,7 @@ export default function HomePage({ user }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
 
   return {

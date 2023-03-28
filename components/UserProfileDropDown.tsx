@@ -2,13 +2,14 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, Transition } from '@headlessui/react';
+import type { StaticImageData } from 'next/image';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 interface UserProfileDropDownProps {
-  userImage: string | null | undefined;
+  userImage: string | StaticImageData;
 }
 
 export default function UserProfileDropDown({
