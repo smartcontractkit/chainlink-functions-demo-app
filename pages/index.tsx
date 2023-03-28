@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, Fragment } from 'react';
 import { useSession, signIn, signOut, getSession } from 'next-auth/react';
 import Wallet from '../components/Wallet';
 import Navbar from '@components/Navbar';
@@ -35,20 +35,11 @@ export default function HomePage({ user }) {
     }
   }, []);
 
-  return !user ? (
+  return (
     <>
-      {' '}
-      Not signed in <br /> <button onClick={() => signIn()}>
-        Sign in
-      </button>{' '}
-    </>
-  ) : (
-    <div>
       <Navbar />
       <Wallet />
-
-      <button onClick={() => signOut()}>Sign out</button>
-    </div>
+    </>
   );
 }
 
