@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSession, signIn, signOut, getSession } from 'next-auth/react';
 import Wallet from '../components/Wallet';
+import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
 import { useMetamask } from '../hooks/useMetamask';
 
@@ -43,6 +44,7 @@ export default function HomePage({ user }) {
     </>
   ) : (
     <div>
+      <Navbar />
       <Wallet />
 
       <button onClick={() => signOut()}>Sign out</button>

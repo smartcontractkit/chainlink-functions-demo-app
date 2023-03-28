@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.16",
     "@moralisweb3/next": "^2.14.3",
     "ethers": "^5.5.1",
     "micro": "^10.0.1",
