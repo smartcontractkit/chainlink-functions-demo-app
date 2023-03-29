@@ -5,6 +5,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 import { Owner, Repo } from 'hooks/useGithubRepo';
+import Image from 'next/image';
 
 const person = {
   name: 'Jane Cooper',
@@ -28,7 +29,7 @@ export default function RepoCard({ repo, owner }: RepoCardProps) {
       className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
     >
       <div className="flex w-full items-center justify-between space-x-6 p-6">
-        <div className="flex-1 truncate">
+        <div className="flex-1 ">
           <div className="flex items-center space-x-3">
             <h3 className="truncate text-sm font-medium text-gray-900">
               {owner.login}
@@ -37,11 +38,15 @@ export default function RepoCard({ repo, owner }: RepoCardProps) {
               {person.role}
             </span>
           </div>
-          <p className="mt-1 truncate text-sm text-gray-500">
-            {repo.description}
-          </p>
+          <div className="text-left">
+            <span className="mt-1 break-normal inline-block text-sm text-gray-500">
+              {repo.description}
+            </span>
+          </div>
         </div>
-        <img
+        <Image
+          width={10}
+          height={10}
           className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
           src={owner.avatarUrl}
           alt=""
@@ -53,7 +58,7 @@ export default function RepoCard({ repo, owner }: RepoCardProps) {
             <span className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
               <StarIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
               Star
-              <span className="inline-flex items-center justify-center h-5 w-5 px-2 py-1 mr-2 text-xs font-bold leading-none text-gray-100 bg-gray-400 rounded-full">
+              <span className="inline-flex items-center justify-center h-5 w-15 px-2 py-1 mr-2 text-xs font-bold leading-none text-gray-100 bg-gray-400 rounded-full">
                 {repo.starCount}
               </span>
             </span>
@@ -62,7 +67,7 @@ export default function RepoCard({ repo, owner }: RepoCardProps) {
             <span className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900">
               <EyeIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
               Watch
-              <span className="inline-flex items-center justify-center h-5 w-5 px-2 py-1 mr-2 text-xs font-bold leading-none text-gray-100 bg-gray-400 rounded-full">
+              <span className="inline-flex items-center justify-center h-5 w-15 px-2 py-1 mr-2 text-xs font-bold leading-none text-gray-100 bg-gray-400 rounded-full">
                 {repo.watchCount}
               </span>
             </span>
@@ -74,7 +79,7 @@ export default function RepoCard({ repo, owner }: RepoCardProps) {
                 aria-hidden="true"
               />
               Fork
-              <span className="inline-flex items-center justify-center h-5 w-5 px-2 py-1 mr-2 text-xs font-bold leading-none text-gray-100 bg-gray-400 rounded-full">
+              <span className="inline-flex items-center justify-center h-5 w-15 px-2 py-1 mr-2 text-xs font-bold leading-none text-gray-100 bg-gray-400 rounded-full">
                 {repo.forkCount}
               </span>
             </span>
