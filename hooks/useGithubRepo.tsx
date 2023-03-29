@@ -3,23 +3,29 @@ import { useSession } from 'next-auth/react';
 
 type IdleAction = { type: 'idle' };
 type LoadingAction = { type: 'loading' };
+type RestInputAction = { type: 'resetInput' };
 type InputAction = { type: 'searchInput'; inputValue: string };
 type SetRepo = { type: 'setRepo'; repo: Repo; owner: Owner };
 
-type Action = LoadingAction | IdleAction | InputAction | SetRepo;
+type Action =
+  | LoadingAction
+  | IdleAction
+  | InputAction
+  | RestInputAction
+  | SetRepo;
 
 type Dispatch = (action: Action) => void;
 
 type Status = 'loading' | 'idle' | 'error';
 
-type Owner = {
+export type Owner = {
   login: string;
   id: number;
   avatarUrl: string;
   htmlUrl: string;
 };
 
-type Repo = {
+export type Repo = {
   id: number;
   name: string;
   description: null | string;
@@ -29,7 +35,7 @@ type Repo = {
   forkCount: number;
 };
 
-type State = {
+export type State = {
   searchInput: string;
   repo: Repo | null;
   status: Status;
@@ -60,6 +66,9 @@ function githubRepoReducer(state: State, action: Action): State {
   switch (action.type) {
     case 'searchInput': {
       return { ...state, searchInput: action.inputValue };
+    }
+    case 'resetInput': {
+      return initialState;
     }
     case 'idle': {
       return { ...state, status: 'idle' };
