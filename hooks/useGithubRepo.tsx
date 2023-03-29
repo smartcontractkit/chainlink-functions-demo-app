@@ -100,7 +100,7 @@ function useGithubRepo() {
   const { dispatch, state } = context;
   async function fetchRepo() {
     // Ensure we have valid state and session data
-    if (context?.state && session?.accessToken) {
+    if (context?.state && session?.user.token) {
       // Get the repo owner and name from the fully qualified URL
       const repoData = parseRepoSearchInput(context.state.searchInput);
       if (repoData) {
@@ -108,7 +108,7 @@ function useGithubRepo() {
         fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`, {
           headers: {
             Accept: 'application/vnd.github+json',
-            Authorization: `Bearer ${session.accessToken}`,
+            Authorization: `Bearer ${session.user.token}`,
           },
         })
           .then((res) => res.json())

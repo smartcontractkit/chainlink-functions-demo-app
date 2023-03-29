@@ -1,14 +1,13 @@
 import { useRef } from 'react';
-import { ExclamationCircleIcon } from '@heroicons/react/20/solid';
 import useKeyFocus from 'hooks/useKeyFocus';
 import { useGithubRepo } from 'hooks/useGithubRepo';
 
 export default function RepoForm() {
-  const repoInputRef = useRef(null);
+  const repoInputRef = useRef<HTMLInputElement>(null);
   const { dispatch, state, fetchRepo } = useGithubRepo();
   useKeyFocus(75, repoInputRef);
 
-  function handleOnSubmit(event) {
+  function handleOnSubmit(event: React.FormEvent) {
     event.preventDefault();
     fetchRepo();
   }
