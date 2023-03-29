@@ -1,10 +1,11 @@
 import { useEffect, Fragment } from 'react';
 import { useSession, signIn, signOut, getSession } from 'next-auth/react';
-import Wallet from '../components/Wallet';
+import Wallet from '@components/Wallet';
 import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
 import { useMetamask } from '../hooks/useMetamask';
 import { GetServerSidePropsContext } from 'next/types';
+import RepoForm from '@components/RepoForm';
 
 interface IndexPageProps {
   user: User;
@@ -44,6 +45,7 @@ export default function IndexPage({ user }: IndexPageProps) {
     <>
       <Navbar />
       <Wallet />
+      <RepoForm />
     </>
   );
 }
