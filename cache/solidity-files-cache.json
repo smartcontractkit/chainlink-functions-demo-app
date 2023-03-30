@@ -1,4 +1,2279 @@
 {
   "_format": "hh-sol-cache-2",
-  "files": {}
+  "files": {
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/AutomatedFunctionsConsumer.sol": {
+      "lastModificationDate": 1680199247955,
+      "contentHash": "a794dfbf4a00359af331806f8ba731c8",
+      "sourceName": "contracts/AutomatedFunctionsConsumer.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./dev/functions/FunctionsClient.sol",
+        "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol",
+        "@chainlink/contracts/src/v0.8/AutomationCompatible.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.7"
+      ],
+      "artifacts": [
+        "AutomatedFunctionsConsumer"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/functions/FunctionsClient.sol": {
+      "lastModificationDate": 1680199247891,
+      "contentHash": "19ed377d219640271908f532817c140c",
+      "sourceName": "contracts/dev/functions/FunctionsClient.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Functions.sol",
+        "../interfaces/FunctionsClientInterface.sol",
+        "../interfaces/FunctionsOracleInterface.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "FunctionsClient"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/AutomationCompatible.sol": {
+      "lastModificationDate": 1680196973719,
+      "contentHash": "c962c53a75d722542c83859d848edd5b",
+      "sourceName": "@chainlink/contracts/src/v0.8/AutomationCompatible.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./AutomationBase.sol",
+        "./interfaces/AutomationCompatibleInterface.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AutomationCompatible"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/ConfirmedOwner.sol": {
+      "lastModificationDate": 1680196973727,
+      "contentHash": "16d64572b0310127fc8a771e63be6d20",
+      "sourceName": "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ConfirmedOwnerWithProposal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ConfirmedOwner"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/interfaces/FunctionsClientInterface.sol": {
+      "lastModificationDate": 1680199247899,
+      "contentHash": "dfac0f91964148ddd21bee85eee2a831",
+      "sourceName": "contracts/dev/interfaces/FunctionsClientInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "FunctionsClientInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/functions/Functions.sol": {
+      "lastModificationDate": 1680199247888,
+      "contentHash": "1f4b072aa59ba29189074fe547f9a893",
+      "sourceName": "contracts/dev/functions/Functions.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/vendor/CBORChainlink.sol",
+        "@chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "Functions"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/interfaces/FunctionsOracleInterface.sol": {
+      "lastModificationDate": 1680199247898,
+      "contentHash": "21a5c842bdc96a6653614d2f849db540",
+      "sourceName": "contracts/dev/interfaces/FunctionsOracleInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./FunctionsBillingRegistryInterface.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "FunctionsOracleInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/vendor/CBORChainlink.sol": {
+      "lastModificationDate": 1680196973723,
+      "contentHash": "99b3ee2c29bc0d1a5cba583d9e8d835e",
+      "sourceName": "@chainlink/contracts/src/v0.8/vendor/CBORChainlink.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./BufferChainlink.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.19"
+      ],
+      "artifacts": [
+        "CBORChainlink"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol": {
+      "lastModificationDate": 1680196973722,
+      "contentHash": "52ac6f99fb0635751ae4ed11139878fd",
+      "sourceName": "@chainlink/contracts/src/v0.8/vendor/BufferChainlink.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BufferChainlink"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/interfaces/FunctionsBillingRegistryInterface.sol": {
+      "lastModificationDate": 1680199247899,
+      "contentHash": "dccf51427056f43cbbbc1a661489a20e",
+      "sourceName": "contracts/dev/interfaces/FunctionsBillingRegistryInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "FunctionsBillingRegistryInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/AutomationBase.sol": {
+      "lastModificationDate": 1680196973719,
+      "contentHash": "80067f44d8bddd615599f8d73b9726a5",
+      "sourceName": "@chainlink/contracts/src/v0.8/AutomationBase.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AutomationBase"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol": {
+      "lastModificationDate": 1680196973720,
+      "contentHash": "c52969cee392918edbf23f914e01c0dc",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AutomationCompatibleInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/ConfirmedOwnerWithProposal.sol": {
+      "lastModificationDate": 1680196973728,
+      "contentHash": "8b1c5f02622cd87472493bda6595d1be",
+      "sourceName": "@chainlink/contracts/src/v0.8/ConfirmedOwnerWithProposal.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/OwnableInterface.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ConfirmedOwnerWithProposal"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol": {
+      "lastModificationDate": 1680196973757,
+      "contentHash": "2e814c8a9f77897f6995436d97c23d99",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "OwnableInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/functions/ConfirmedOwnerUpgradeable.sol": {
+      "lastModificationDate": 1680199247890,
+      "contentHash": "439f5ac2d82c875f8bb74d77a2a400d7",
+      "sourceName": "contracts/dev/functions/ConfirmedOwnerUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ConfirmedOwnerUpgradeable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts-upgradeable@4.8.2/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1680196973512,
+      "contentHash": "fc5844e59776a976987884e4d9814c7d",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/AddressUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "Initializable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts-upgradeable@4.8.2/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1680196973492,
+      "contentHash": "228f256dbb21393bc9ad02648e222f74",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "AddressUpgradeable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/ocr2/OCR2BaseUpgradeable.sol": {
+      "lastModificationDate": 1680199247886,
+      "contentHash": "5b22e2f60fdcfa0dd1dc96d157142367",
+      "sourceName": "contracts/dev/ocr2/OCR2BaseUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../functions/ConfirmedOwnerUpgradeable.sol",
+        "@chainlink/contracts/src/v0.8/dev/ocr2/OCR2Abstract.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "OCR2BaseUpgradeable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/dev/ocr2/OCR2Abstract.sol": {
+      "lastModificationDate": 1680196973753,
+      "contentHash": "331e55d871598a477a738241fc74a3c0",
+      "sourceName": "@chainlink/contracts/src/v0.8/dev/ocr2/OCR2Abstract.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../interfaces/TypeAndVersionInterface.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "OCR2Abstract"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/interfaces/TypeAndVersionInterface.sol": {
+      "lastModificationDate": 1680196973764,
+      "contentHash": "99239ca600c3a8878735c8c17d46981a",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/TypeAndVersionInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TypeAndVersionInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/functions/FunctionsBillingRegistry.sol": {
+      "lastModificationDate": 1680199247892,
+      "contentHash": "3c3ff82583b6d147d3b3f687217e6e53",
+      "sourceName": "contracts/dev/functions/FunctionsBillingRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol",
+        "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
+        "../interfaces/FunctionsBillingRegistryInterface.sol",
+        "../interfaces/FunctionsOracleInterface.sol",
+        "../interfaces/FunctionsClientInterface.sol",
+        "@chainlink/contracts/src/v0.8/interfaces/TypeAndVersionInterface.sol",
+        "@chainlink/contracts/src/v0.8/interfaces/ERC677ReceiverInterface.sol",
+        "../interfaces/AuthorizedOriginReceiverInterface.sol",
+        "./ConfirmedOwnerUpgradeable.sol",
+        "../AuthorizedReceiver.sol",
+        "../vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/SafeCast.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "FunctionsBillingRegistry"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/interfaces/AuthorizedOriginReceiverInterface.sol": {
+      "lastModificationDate": 1680199247897,
+      "contentHash": "8047fbe233b997896767755b2b0f68ca",
+      "sourceName": "contracts/dev/interfaces/AuthorizedOriginReceiverInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "AuthorizedOriginReceiverInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/SafeCast.sol": {
+      "lastModificationDate": 1680199247897,
+      "contentHash": "bed9d6b2153a8c4afbf03d463faf5d7d",
+      "sourceName": "contracts/dev/vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/SafeCast.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SafeCast"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/AuthorizedReceiver.sol": {
+      "lastModificationDate": 1680199247887,
+      "contentHash": "841553634437efcb12029c1a53a41ec1",
+      "sourceName": "contracts/dev/AuthorizedReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/structs/EnumerableSet.sol",
+        "./interfaces/AuthorizedReceiverInterface.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "AuthorizedReceiver"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts-upgradeable@4.8.2/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
+      "lastModificationDate": 1680196973514,
+      "contentHash": "cbe53d6b803c1102081e00b3a0418ea3",
+      "sourceName": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/ContextUpgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PausableUpgradeable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol": {
+      "lastModificationDate": 1680196973747,
+      "contentHash": "da5a0c3bd86c896f6a407f909c57edf3",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LinkTokenInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+      "lastModificationDate": 1680196973717,
+      "contentHash": "d9654a0fc044a31d4106ee6bca772add",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AggregatorV3Interface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.8/interfaces/ERC677ReceiverInterface.sol": {
+      "lastModificationDate": 1680196973736,
+      "contentHash": "26d371857fda5a1bf087572b40bc1538",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/ERC677ReceiverInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "ERC677ReceiverInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/structs/EnumerableSet.sol": {
+      "lastModificationDate": 1680199247896,
+      "contentHash": "26787abe77a8626e89fb583b47541562",
+      "sourceName": "contracts/dev/vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/structs/EnumerableSet.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "EnumerableSet"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/interfaces/AuthorizedReceiverInterface.sol": {
+      "lastModificationDate": 1680199247898,
+      "contentHash": "28560e9fb31f8b123eb92248a4523a06",
+      "sourceName": "contracts/dev/interfaces/AuthorizedReceiverInterface.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AuthorizedReceiverInterface"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts-upgradeable@4.8.2/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1680196973493,
+      "contentHash": "6200b84950eb05b4a92a39fd1d6e0f9b",
+      "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ContextUpgradeable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/functions/FunctionsOracle.sol": {
+      "lastModificationDate": 1680199247890,
+      "contentHash": "873b58d17cc983100e0e0f61e59bfbdf",
+      "sourceName": "contracts/dev/functions/FunctionsOracle.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/FunctionsOracleInterface.sol",
+        "../ocr2/OCR2BaseUpgradeable.sol",
+        "./AuthorizedOriginReceiverUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "FunctionsOracle"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/functions/AuthorizedOriginReceiverUpgradeable.sol": {
+      "lastModificationDate": 1680199247889,
+      "contentHash": "bc62b4d240dba21eb0802dce1ab3bd54",
+      "sourceName": "contracts/dev/functions/AuthorizedOriginReceiverUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/structs/EnumerableSet.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "AuthorizedOriginReceiverUpgradeable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/FunctionsConsumer.sol": {
+      "lastModificationDate": 1680199247953,
+      "contentHash": "4cd07b9c12eec969b2e4f5ffc31c076e",
+      "sourceName": "contracts/FunctionsConsumer.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./dev/functions/FunctionsClient.sol",
+        "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.7"
+      ],
+      "artifacts": [
+        "FunctionsConsumer"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/functions/AuthorizedOriginReceiver.sol": {
+      "lastModificationDate": 1680199247891,
+      "contentHash": "7076ff51f5a7bfb7dc21ffc3ff8bb9ed",
+      "sourceName": "contracts/dev/functions/AuthorizedOriginReceiver.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/structs/EnumerableSet.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.6"
+      ],
+      "artifacts": [
+        "AuthorizedOriginReceiver"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/ocr2/OCR2Base.sol": {
+      "lastModificationDate": 1680199247885,
+      "contentHash": "48337439e451d1a0ce65a25d083e97b9",
+      "sourceName": "contracts/dev/ocr2/OCR2Base.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol",
+        "@chainlink/contracts/src/v0.8/dev/ocr2/OCR2Abstract.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "OCR2Base"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/functions/vendor/ProxyAdmin.sol": {
+      "lastModificationDate": 1680199247892,
+      "contentHash": "318b615fd4918b4e1c571cf330708113",
+      "sourceName": "contracts/dev/functions/vendor/ProxyAdmin.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/proxy/transparent/ProxyAdmin.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": []
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/proxy/transparent/ProxyAdmin.sol": {
+      "lastModificationDate": 1680196973463,
+      "contentHash": "a947492251ac15d6bfd899c9fdb4d82b",
+      "sourceName": "@openzeppelin/contracts/proxy/transparent/ProxyAdmin.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./TransparentUpgradeableProxy.sol",
+        "../../access/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ProxyAdmin"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol": {
+      "lastModificationDate": 1680196973465,
+      "contentHash": "ea48b4a63fd733eec048191be006daa8",
+      "sourceName": "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../ERC1967/ERC1967Proxy.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TransparentUpgradeableProxy"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1680196973462,
+      "contentHash": "e436cea06129be2c73cda4b1acc848b5",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol": {
+      "lastModificationDate": 1680196973446,
+      "contentHash": "3fc3c7c0a2956f36e766691bb9473b06",
+      "sourceName": "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../Proxy.sol",
+        "./ERC1967Upgrade.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1967Proxy"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol": {
+      "lastModificationDate": 1680196973446,
+      "contentHash": "6baa887a798e95b14f34e093f117e9b2",
+      "sourceName": "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../beacon/IBeacon.sol",
+        "../../interfaces/draft-IERC1822.sol",
+        "../../utils/Address.sol",
+        "../../utils/StorageSlot.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "ERC1967Upgrade"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/proxy/Proxy.sol": {
+      "lastModificationDate": 1680196973759,
+      "contentHash": "40b3d81a836d50ff47e03893dcaaf204",
+      "sourceName": "@openzeppelin/contracts/proxy/Proxy.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Proxy"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1680196973440,
+      "contentHash": "f31ad6fc4bbf9c06203987220156a6ba",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol": {
+      "lastModificationDate": 1680196973443,
+      "contentHash": "2858d98e74e67987ec81b39605230b74",
+      "sourceName": "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1822Proxiable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/utils/StorageSlot.sol": {
+      "lastModificationDate": 1680196973465,
+      "contentHash": "f993f8f50186952a59ee5e3a30b68222",
+      "sourceName": "@openzeppelin/contracts/utils/StorageSlot.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "StorageSlot"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/proxy/beacon/IBeacon.sol": {
+      "lastModificationDate": 1680196973453,
+      "contentHash": "b6bd23bf19e90b771337037706470933",
+      "sourceName": "@openzeppelin/contracts/proxy/beacon/IBeacon.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IBeacon"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@openzeppelin+contracts@4.8.2/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1680196973729,
+      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/functions/vendor/TransparentUpgradeableProxy.sol": {
+      "lastModificationDate": 1680199247892,
+      "contentHash": "e99b609444cba27b8ecf62c6578bc38e",
+      "sourceName": "contracts/dev/functions/vendor/TransparentUpgradeableProxy.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": []
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/vendor/openzeppelin-solidity/v.4.8.0/contracts/security/Pausable.sol": {
+      "lastModificationDate": 1680199247895,
+      "contentHash": "fff2ed3af7ca6f9aad21b56a3ec8a8ab",
+      "sourceName": "contracts/dev/vendor/openzeppelin-solidity/v.4.8.0/contracts/security/Pausable.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Pausable"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/Context.sol": {
+      "lastModificationDate": 1680199247896,
+      "contentHash": "1e1cb702810ab17e9aa437c9b18c5cfe",
+      "sourceName": "contracts/dev/vendor/openzeppelin-solidity/v.4.8.0/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/dev/vendor/openzeppelin-solidity/v4.3.1/contracts/utils/Address.sol": {
+      "lastModificationDate": 1680199247894,
+      "contentHash": "045fc084375a87fd8f569098169dc865",
+      "sourceName": "contracts/dev/vendor/openzeppelin-solidity/v4.3.1/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/contracts/test/LinkToken.sol": {
+      "lastModificationDate": 1680199247763,
+      "contentHash": "97b1f78b6a07a1e62cdf057cccaf7166",
+      "sourceName": "contracts/test/LinkToken.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.4/LinkToken.sol"
+      ],
+      "versionPragmas": [
+        "^0.4.24"
+      ],
+      "artifacts": []
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.4/LinkToken.sol": {
+      "lastModificationDate": 1680196973746,
+      "contentHash": "e9f0ef74e0010d065eca3b3031c440dd",
+      "sourceName": "@chainlink/contracts/src/v0.4/LinkToken.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC677Token.sol",
+        "./vendor/StandardToken.sol"
+      ],
+      "versionPragmas": [
+        "^0.4.11"
+      ],
+      "artifacts": [
+        "LinkToken"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.4/ERC677Token.sol": {
+      "lastModificationDate": 1680196973736,
+      "contentHash": "45b8db7fb2ef3b6c7dd95365ea22d0ff",
+      "sourceName": "@chainlink/contracts/src/v0.4/ERC677Token.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/ERC677.sol",
+        "./interfaces/ERC677Receiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.4.11"
+      ],
+      "artifacts": [
+        "ERC677Token"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.4/vendor/StandardToken.sol": {
+      "lastModificationDate": 1680196973763,
+      "contentHash": "9e6703cae7b44c16c228e0025c159bdb",
+      "sourceName": "@chainlink/contracts/src/v0.4/vendor/StandardToken.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./BasicToken.sol",
+        "../interfaces/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.4.11"
+      ],
+      "artifacts": [
+        "StandardToken"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.4/interfaces/ERC677Receiver.sol": {
+      "lastModificationDate": 1680196973735,
+      "contentHash": "59f6b5d24479f462b1376ba5a96edf2a",
+      "sourceName": "@chainlink/contracts/src/v0.4/interfaces/ERC677Receiver.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.4.8"
+      ],
+      "artifacts": [
+        "ERC677Receiver"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.4/interfaces/ERC677.sol": {
+      "lastModificationDate": 1680196973735,
+      "contentHash": "05de760f44a7c34c788f89571bbb77ee",
+      "sourceName": "@chainlink/contracts/src/v0.4/interfaces/ERC677.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.4.8"
+      ],
+      "artifacts": [
+        "ERC677"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.4/interfaces/ERC20.sol": {
+      "lastModificationDate": 1680196973735,
+      "contentHash": "06a6781f289c4039aa25b91d52799fc2",
+      "sourceName": "@chainlink/contracts/src/v0.4/interfaces/ERC20.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC20Basic.sol"
+      ],
+      "versionPragmas": [
+        "^0.4.11"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.4/interfaces/ERC20Basic.sol": {
+      "lastModificationDate": 1680196973735,
+      "contentHash": "c669adeb22611a05d90e6444dcb431e6",
+      "sourceName": "@chainlink/contracts/src/v0.4/interfaces/ERC20Basic.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.4.11"
+      ],
+      "artifacts": [
+        "ERC20Basic"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.4/vendor/BasicToken.sol": {
+      "lastModificationDate": 1680196973720,
+      "contentHash": "00797d6f33d74331d3436d8dc0cf0c65",
+      "sourceName": "@chainlink/contracts/src/v0.4/vendor/BasicToken.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/ERC20Basic.sol",
+        "./SafeMathChainlink.sol"
+      ],
+      "versionPragmas": [
+        "^0.4.24"
+      ],
+      "artifacts": [
+        "BasicToken"
+      ]
+    },
+    "/Users/jesse/Documents/code/chainlink-functions/node_modules/.pnpm/@chainlink+contracts@0.6.1_ethers@5.5.1/node_modules/@chainlink/contracts/src/v0.4/vendor/SafeMathChainlink.sol": {
+      "lastModificationDate": 1680196973761,
+      "contentHash": "25526c623f7624993554d443f0f25549",
+      "sourceName": "@chainlink/contracts/src/v0.4/vendor/SafeMathChainlink.sol",
+      "solcConfig": {
+        "version": "0.4.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1000
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.4.11"
+      ],
+      "artifacts": [
+        "SafeMathChainlink"
+      ]
+    }
+  }
 }
