@@ -13,6 +13,7 @@ specifiers:
   '@nomiclabs/hardhat-etherscan': ^3.0.0
   '@openzeppelin/contracts': ^4.8.2
   '@openzeppelin/contracts-upgradeable': ^4.8.2
+  '@openzeppelin/hardhat-upgrades': ^1.22.1
   '@typechain/ethers-v5': ^10.1.0
   '@typechain/hardhat': ^6.1.2
   '@types/chai': ^4.3.4
@@ -46,6 +47,7 @@ specifiers:
   prompt-sync: ^4.2.0
   react: 18.2.0
   react-dom: 18.2.0
+  readline-promise: ^1.0.5
   solidity-coverage: ^0.8.1
   tailwindcss: ^3.2.7
   typechain: ^8.1.1
@@ -72,6 +74,7 @@ dependencies:
   prompt-sync: 4.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  readline-promise: 1.0.5
   vm2: 3.9.14
   wagmi: 0.12.0_c6kvmv7vzedxkpgboo45rhvljm
 
@@ -82,6 +85,7 @@ devDependencies:
   '@nomicfoundation/hardhat-toolbox': 2.0.2_ni2sibjblk2vrqunabnfjm2xgy
   '@nomiclabs/hardhat-ethers': 2.2.2_pz2zlk4icp2bevgvxhahffwode
   '@nomiclabs/hardhat-etherscan': 3.1.7_hardhat@2.13.0
+  '@openzeppelin/hardhat-upgrades': 1.22.1_l757v5v4z6cb25wsnnmdpeylra
   '@typechain/ethers-v5': 10.2.0_k5mprhlxix3l5ov2jal3fvpuy4
   '@typechain/hardhat': 6.1.5_tjg36umyaibn3gl5vll7oog7ci
   '@types/chai': 4.3.4
@@ -1923,6 +1927,45 @@ packages:
   /@openzeppelin/contracts/4.8.2:
     resolution: {integrity: sha512-kEUOgPQszC0fSYWpbh2kT94ltOJwj1qfT2DWo+zVttmGmf97JZ99LspePNaeeaLhCImaHVeBbjaQFZQn7+Zc5g==}
     dev: false
+
+  /@openzeppelin/hardhat-upgrades/1.22.1_l757v5v4z6cb25wsnnmdpeylra:
+    resolution: {integrity: sha512-MdoitCTLl4zwMU8MeE/bCj+7JMWBEvd38XqJkw36PkJrXlbv6FedDVCPoumMAhpmtymm0nTwTYYklYG+L6WiiQ==}
+    hasBin: true
+    peerDependencies:
+      '@nomiclabs/hardhat-ethers': ^2.0.0
+      '@nomiclabs/hardhat-etherscan': ^3.1.0
+      '@nomiclabs/harhdat-etherscan': '*'
+      ethers: ^5.0.5
+      hardhat: ^2.0.2
+    peerDependenciesMeta:
+      '@nomiclabs/harhdat-etherscan':
+        optional: true
+    dependencies:
+      '@nomiclabs/hardhat-ethers': 2.2.2_pz2zlk4icp2bevgvxhahffwode
+      '@nomiclabs/hardhat-etherscan': 3.1.7_hardhat@2.13.0
+      '@openzeppelin/upgrades-core': 1.24.1
+      chalk: 4.1.2
+      debug: 4.3.4
+      ethers: 5.5.1
+      hardhat: 2.13.0_typescript@4.9.5
+      proper-lockfile: 4.1.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@openzeppelin/upgrades-core/1.24.1:
+    resolution: {integrity: sha512-QhdIQDUykJ3vQauB6CheV7vk4zgn0e1iY+IDg7r1KqpA1m2bqIGjQCpzidW33K4bZc9zdJSPx2/Z6Um5KxCB7A==}
+    dependencies:
+      cbor: 8.1.0
+      chalk: 4.1.2
+      compare-versions: 5.0.3
+      debug: 4.3.4
+      ethereumjs-util: 7.1.5
+      proper-lockfile: 4.1.2
+      solidity-ast: 0.4.46
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@panva/hkdf/1.0.4:
     resolution: {integrity: sha512-003xWiCuvePbLaPHT+CRuaV4GlyCAVm6XYSbBZDHoWZGn1mNkVKFaDbGJjjxmEFvizUwlCoM6O18FCBMMky2zQ==}
@@ -3997,6 +4040,10 @@ packages:
 
   /commander/3.0.2:
     resolution: {integrity: sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==}
+    dev: true
+
+  /compare-versions/5.0.3:
+    resolution: {integrity: sha512-4UZlZP8Z99MGEY+Ovg/uJxJuvoXuN4M6B3hKaiackiHrgzQFEe3diJi1mf1PNHbFujM7FvLrK2bpgIaImbtZ1A==}
     dev: true
 
   /concat-map/0.0.1:
@@ -7429,6 +7476,14 @@ packages:
       react-is: 16.13.1
     dev: true
 
+  /proper-lockfile/4.1.2:
+    resolution: {integrity: sha512-TjNPblN4BwAWMXU8s9AEz4JmQxnD1NNL7bNOY/AKUzyamc379FWASUhc/K1pL2noVb+XmZKLL68cjzLsiOAMaA==}
+    dependencies:
+      graceful-fs: 4.2.10
+      retry: 0.12.0
+      signal-exit: 3.0.7
+    dev: true
+
   /proxy-compare/2.4.0:
     resolution: {integrity: sha512-FD8KmQUQD6Mfpd0hywCOzcon/dbkFP8XBd9F1ycbKtvVsfv6TsFUKJ2eC0Iz2y+KzlkdT1Z8SY6ZSgm07zOyqg==}
     dev: false
@@ -7574,6 +7629,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+
+  /readline-promise/1.0.5:
+    resolution: {integrity: sha512-rlqCVq6aaHxJCOJ0CzDHUi9Kj9JPBpnGFkdl6JefVjy0O/dGuBP+CovaHfaftUwElUlIeUs0E/a3Z5y45vRTVA==}
+    dev: false
 
   /real-require/0.1.0:
     resolution: {integrity: sha512-r/H9MzAWtrv8aSVjPCMFpDMl5q66GqtmmRkRjpHTsp4zBAa+snZyiQNlMONiUmEJcsnaw0wCauJ2GWODr/aFkg==}
@@ -7727,6 +7786,11 @@ packages:
       is-core-module: 2.11.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
+    dev: true
+
+  /retry/0.12.0:
+    resolution: {integrity: sha512-9LkiTwjUh6rT555DtE9rTX+BKByPfrMzEAtnlEtdEwr3Nkffwiihqe2bWADg+OQRjt9gl6ICdmB/ZFDCGAtSow==}
+    engines: {node: '>= 4'}
     dev: true
 
   /reusify/1.0.4:
@@ -7975,6 +8039,10 @@ packages:
       get-intrinsic: 1.2.0
       object-inspect: 1.12.3
 
+  /signal-exit/3.0.7:
+    resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
+    dev: true
+
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
@@ -8010,6 +8078,10 @@ packages:
       tmp: 0.0.33
     transitivePeerDependencies:
       - debug
+    dev: true
+
+  /solidity-ast/0.4.46:
+    resolution: {integrity: sha512-MlPZQfPhjWXqh7YxWcBGDXaPZIfMYCOHYoLEhGDWulNwEPIQQZuB7mA9eP17CU0jY/bGR4avCEUVVpvHtT2gbA==}
     dev: true
 
   /solidity-coverage/0.8.2_hardhat@2.13.0:
