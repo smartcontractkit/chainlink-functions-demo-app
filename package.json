@@ -28,11 +28,15 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "readline-promise": "^1.0.5",
+    "ts-node": "^10.9.1",
     "vm2": "^3.9.14",
     "wagmi": "^0.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/bytes": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",

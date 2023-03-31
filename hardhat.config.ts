@@ -41,9 +41,11 @@ if (!PRIVATE_KEY) {
 }
 
 // Set a specific bock number to fork (optional)
-const FORKING_BLOCK_NUMBER = isNaN(process.env.FORKING_BLOCK_NUMBER)
-  ? undefined
-  : parseInt(process.env.FORKING_BLOCK_NUMBER);
+// if (process.env.FORKING_BLOCK_NUMBER) {
+//   const FORKING_BLOCK_NUMBER = isNaN(process.env.FORKING_BLOCK_NUMBER)
+//     ? undefined
+//     : parseInt(process.env.FORKING_BLOCK_NUMBER);
+// }
 
 // Your API key for Etherscan, obtain one at https://etherscan.io/ (optional)
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
@@ -62,15 +64,15 @@ const config: HardhatUserConfig = {
     hardhat: {
       allowUnlimitedContractSize: true,
       hardfork: 'merge',
-      forking: {
-        url:
-          MAINNET_RPC_URL ??
-          POLYGON_MAINNET_RPC_URL ??
-          MUMBAI_RPC_URL ??
-          SEPOLIA_RPC_URL,
-        blockNumber: FORKING_BLOCK_NUMBER,
-        enabled: true,
-      },
+      // forking: {
+      //   url:
+      //     MAINNET_RPC_URL ??
+      //     POLYGON_MAINNET_RPC_URL ??
+      //     MUMBAI_RPC_URL ??
+      //     SEPOLIA_RPC_URL,
+      //   blockNumber: FORKING_BLOCK_NUMBER,
+      //   enabled: true,
+      // },
       chainId: 31337,
       accounts: process.env.PRIVATE_KEY
         ? [
@@ -104,10 +106,10 @@ const config: HardhatUserConfig = {
   etherscan: {
     // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
     apiKey: {
-      mainnet: ETHERSCAN_API_KEY,
-      polygon: POLYGONSCAN_API_KEY,
-      sepolia: ETHERSCAN_API_KEY,
-      polygonMumbai: POLYGONSCAN_API_KEY,
+      mainnet: ETHERSCAN_API_KEY as string,
+      polygon: POLYGONSCAN_API_KEY as string,
+      sepolia: ETHERSCAN_API_KEY as string,
+      polygonMumbai: POLYGONSCAN_API_KEY as string,
     },
   },
   gasReporter: {
@@ -116,14 +118,14 @@ const config: HardhatUserConfig = {
     outputFile: 'gas-report.txt',
     noColors: true,
   },
-  contractSizer: {
-    runOnCompile: false,
-    only: [
-      'FunctionsConsumer',
-      'AutomatedFunctionsConsumer',
-      'FunctionsBillingRegistry',
-    ],
-  },
+  // contractSizer: {
+  //   runOnCompile: false,
+  //   only: [
+  //     'FunctionsConsumer',
+  //     'AutomatedFunctionsConsumer',
+  //     'FunctionsBillingRegistry',
+  //   ],
+  // },
   paths: {
     sources: './contracts',
     tests: './test',
