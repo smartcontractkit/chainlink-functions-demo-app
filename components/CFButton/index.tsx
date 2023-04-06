@@ -1,5 +1,9 @@
 import styles from './CFButton.module.css';
-const CFButton = () => {
+interface Props {
+  text: string;
+  isDisabled: boolean;
+}
+const CFButton = ({text, isDisabled }) => {
   
 };
 

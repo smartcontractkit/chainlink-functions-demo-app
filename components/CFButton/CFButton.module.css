@@ -1,5 +1,5 @@
 @tailwind utilities;
 
 .button_wrapper {
-  @apply py-2 px-4 text-gray-800 bg-blue-200 hover:bg-blue-300;
+  @apply py-2 px-4 text-gray-800 bg-blue-200 hover:bg-blue-300 disabled:bg-blue-300;
 }
