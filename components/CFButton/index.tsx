@@ -4,12 +4,12 @@ import styles from './CFButton.module.css';
 interface Props {
   text: string;
   isDisabled?: boolean;
-  size?: 'sm' | 'lg';
+  size?: 'md' | 'lg';
 }
 
 const CFButton = ({ text, size, isDisabled }: Props) => {
   const btnClasses = classNames(styles.button_wrapper, {
-    [styles.button_sm_wrapper]: size === 'sm',
+    [styles.button_md_wrapper]: size === 'md',
   });
   return (
     <button className={btnClasses} disabled={isDisabled}>
