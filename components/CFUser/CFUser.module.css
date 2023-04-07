@@ -1,5 +1,9 @@
 @tailwind utilities;
 
 .user_wrapper {
-  @apply flex items-center gap-6;
+  @apply flex items-center gap-6 py-[10px] px-4 rounded-md bg-white-alpha-50;
+}
+
+.wallet_avatar {
+  @apply flex items-center gap-3;
 }
