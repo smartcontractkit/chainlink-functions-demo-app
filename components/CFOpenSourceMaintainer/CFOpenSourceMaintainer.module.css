@@ -1,0 +1,25 @@
+@tailwind utilities;
+
+.container {
+  @apply flex justify-between items-center text-text-md rounded-md px-5 gap-4 bg-white-alpha-100;
+}
+
+.content {
+  @apply flex items-center gap-3.5;
+}
+
+.question_claim {
+  @apply flex items-center gap-2;
+}
+
+.question {
+  @apply text-white;
+}
+
+.claim {
+  @apply text-blue-200;
+}
+
+.btn {
+  @apply outline-none border-0;
+}
