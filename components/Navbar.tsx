@@ -5,7 +5,6 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 import UserProfileDropDown from './UserProfileDropDown';
-import CFUser from './CFUser';
 
 const navigation = [
   { name: 'Donate', href: '#', current: true },
@@ -76,7 +75,6 @@ export default function Navbar() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
-                <CFUser />
                 {session && session?.user?.image ? (
                   <UserProfileDropDown userImage={session.user.image} />
                 ) : (

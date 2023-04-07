@@ -7,3 +7,7 @@
 .wallet_avatar {
   @apply flex items-center gap-3;
 }
+
+.balance {
+  @apply text-gray-200 font-semibold text-text-sm;
+}
