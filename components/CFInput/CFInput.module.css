@@ -1,0 +1,21 @@
+@tailwind utilities;
+
+.container {
+  @apply flex flex-col gap-2;
+}
+
+.input_container {
+  @apply flex gap-3 py-3 px-4 border bg-white-alpha-50 rounded-md items-center;
+}
+
+.input {
+  @apply placeholder:text-white-alpha-500 text-gray-100 w-full h-full bg-transparent outline-none;
+}
+
+.missing_field {
+  @apply text-red-300 font-medium text-text-xs;
+}
+
+.icon_with_text {
+  @apply flex items-center gap-3 pr-4 border-r border-r-white-alpha-300 uppercase;
+}
