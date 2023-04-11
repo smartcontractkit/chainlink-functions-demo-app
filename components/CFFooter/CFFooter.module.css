@@ -1,0 +1,13 @@
+@tailwind utilities;
+
+.container {
+  @apply flex flex-col-reverse md:flex-row justify-between items-center text-text-sm text-gray-500 font-medium gap-2 px-4;
+}
+
+.copyright {
+  @apply flex items-center gap-1;
+}
+
+.terms_privacy {
+  @apply flex items-center gap-6;
+}
