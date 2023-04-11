@@ -7,7 +7,7 @@ interface Props {
 }
 
 const CFOpenSourceMaintainer = ({ isNav }: Props) => {
-  const conatinerClasses = classNames(styles.container, {
+  const containerClasses = classNames(styles.container, {
     'py-2': isNav,
     'py-3': !isNav,
   });
@@ -21,7 +21,7 @@ const CFOpenSourceMaintainer = ({ isNav }: Props) => {
   });
 
   return (
-    <div className={conatinerClasses}>
+    <div className={containerClasses}>
       <div className={styles.content}>
         {!isNav && (
           <Image
