@@ -40,3 +40,4 @@ next-env.d.ts
 
 # Hardhat config / compile
 artifacts
+cache/
