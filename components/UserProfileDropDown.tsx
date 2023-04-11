@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, Transition } from '@headlessui/react';
 import type { StaticImageData } from 'next/image';
+import CFUser from './CFUser';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
@@ -18,15 +19,9 @@ export default function UserProfileDropDown({
   return (
     <Menu as="div" className="relative ml-3">
       <div>
-        <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+        <Menu.Button className="flex rounded-md bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
           <span className="sr-only">Open user menu</span>
-          <Image
-            height={32}
-            width={32}
-            className="rounded-full"
-            src={userImage}
-            alt="user avatar from github"
-          />
+          <CFUser />
         </Menu.Button>
       </div>
       <Transition
