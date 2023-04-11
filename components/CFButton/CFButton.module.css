@@ -1,0 +1,9 @@
+@tailwind utilities;
+
+.button_wrapper {
+  @apply transition-opacity delay-1000 py-[10px] px-4 text-text-lg font-semibold text-gray-800 bg-blue-200 rounded-md hover:bg-blue-300 disabled:bg-blue-300 disabled:opacity-50;
+}
+
+.button_md_wrapper {
+  @apply py-2 text-text-md;
+}
