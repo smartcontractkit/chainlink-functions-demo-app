@@ -14,7 +14,7 @@ export default function Navbar({ isOpenM }: Props) {
   // NextAuth Session Data
   const { data: session, status } = useSession();
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-transparent">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-[1440px] px-4 lg:px-8">

@@ -8,6 +8,7 @@ import { GetServerSidePropsContext } from 'next/types';
 import RepoForm from '@components/RepoForm';
 import CFOpenSourceMaintainer from '@components/CFOpenSourceMaintainer';
 import { Transition } from '@headlessui/react';
+import About from 'sections/About';
 
 interface IndexPageProps {
   user: User;
@@ -61,6 +62,8 @@ export default function IndexPage({ user }: IndexPageProps) {
         >
           <CFOpenSourceMaintainer closeAlert={() => setIsOpenM(true)} />
         </Transition>
+
+        <About />
       </div>
       <Wallet />
       <RepoForm />

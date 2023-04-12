@@ -1,0 +1,37 @@
+@tailwind utilities;
+
+.container {
+  @apply bg-white-alpha-50 backdrop-blur-[10px] rounded-md p-5 py-10 my-10;
+}
+
+.content_wrapper {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:divide-x divide-white-alpha-100 gap-12 h-full;
+}
+
+.content {
+  @apply flex flex-col lg:pl-14 text-gray-300 text-sm font-normal gap-5;
+}
+
+.title {
+  @apply text-white text-lg font-semibold text-left mb-6 w-fit;
+}
+
+.wallets {
+  @apply bg-white-alpha-50 rounded-md flex items-center p-1.5 gap-2;
+}
+
+.get_started {
+  @apply space-y-4 -translate-y-2;
+}
+
+.list {
+  @apply list-inside flex gap-4 items-center;
+}
+
+.for_devs {
+  @apply list-inside list-disc pl-3;
+}
+
+.github_wrapper {
+  @apply flex items-center gap-2 text-blue-200 font-semibold text-base;
+}
