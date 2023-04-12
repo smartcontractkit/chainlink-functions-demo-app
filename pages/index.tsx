@@ -1,14 +1,13 @@
 import { useEffect, Fragment, useState } from 'react';
-import { useSession, signIn, signOut, getSession } from 'next-auth/react';
-import Wallet from '@components/Wallet';
+import { getSession } from 'next-auth/react';
 import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
 import { useMetamask } from '../hooks/useMetamask';
 import { GetServerSidePropsContext } from 'next/types';
-import RepoForm from '@components/RepoForm';
 import CFOpenSourceMaintainer from '@components/CFOpenSourceMaintainer';
 import { Transition } from '@headlessui/react';
 import ContractSection from 'sections/ContractSection';
+import About from 'sections/About';
 
 interface IndexPageProps {
   user: User;
@@ -62,8 +61,9 @@ export default function IndexPage({ user }: IndexPageProps) {
         >
           <CFOpenSourceMaintainer closeAlert={() => setIsOpenM(true)} />
         </Transition>
+        <About />
+        <ContractSection />
       </div>
-      <ContractSection />
       <div className="gradients green_gradient"></div>
       <div className="gradients blue_gradient"></div>
     </>
