@@ -1,0 +1,13 @@
+@tailwind utilities;
+
+.list_btn {
+  @apply relative h-12 w-full cursor-default rounded-md bg-white-alpha-50 py-2 pl-3 pr-10 text-left border focus:outline-none border-white-alpha-300 focus-visible:border-blue-200 disabled:opacity-50;
+}
+
+.options {
+  @apply absolute z-20 mt-3.5 max-h-60 w-full overflow-auto bg-gray-800 text-base shadow-lg focus:outline-none sm:text-sm;
+}
+
+.option {
+  @apply relative cursor-pointer select-none py-4 pl-10 pr-4 text-white;
+}
