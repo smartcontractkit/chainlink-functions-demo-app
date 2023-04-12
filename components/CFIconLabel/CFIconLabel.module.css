@@ -1,0 +1,9 @@
+@tailwind utilities;
+
+.container {
+  @apply flex gap-4 items-start;
+}
+
+.content {
+  @apply text-gray-300 text-sm text-left;
+}
