@@ -1,0 +1,16 @@
+@tailwind utilities;
+
+.card {
+  @apply w-full lg:w-[460px] py-6 px-10 flex flex-col justify-center items-center bg-white-alpha-50 border border-white-alpha-300 rounded-md;
+}
+
+.outer_circle {
+  @apply w-[88px] h-[88px] rounded-full bg-white-alpha-100 flex justify-center items-center;
+}
+.circle {
+  @apply w-16 h-16 rounded-full flex justify-center items-center flex-shrink;
+}
+
+.message {
+  @apply mt-6 mb-10 text-gray-300 font-normal text-base;
+}
