@@ -9,7 +9,7 @@
 }
 
 .content {
-  @apply flex flex-col lg:pl-14 text-gray-300 text-sm font-normal gap-5;
+  @apply flex flex-col lg:px-10 text-gray-300 text-sm font-normal gap-5;
 }
 
 .title {
