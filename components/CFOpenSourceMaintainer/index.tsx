@@ -4,9 +4,10 @@ import classNames from 'classnames';
 
 interface Props {
   isNav?: boolean;
+  closeAlert?: () => void;
 }
 
-const CFOpenSourceMaintainer = ({ isNav }: Props) => {
+const CFOpenSourceMaintainer = ({ isNav, closeAlert }: Props) => {
   const containerClasses = classNames(styles.container, {
     'py-2': isNav,
     'py-3': !isNav,
@@ -19,6 +20,11 @@ const CFOpenSourceMaintainer = ({ isNav }: Props) => {
     'font-normal': isNav,
     'font-semibold': !isNav,
   });
+
+  const handleOpenMaintainerAlert = () => {
+    window.sessionStorage.setItem('openM', 'true');
+    closeAlert && closeAlert();
+  };
 
   return (
     <div className={containerClasses}>
@@ -39,7 +45,7 @@ const CFOpenSourceMaintainer = ({ isNav }: Props) => {
         </div>
       </div>
       {!isNav && (
-        <button className={styles.btn}>
+        <button className={styles.btn} onClick={handleOpenMaintainerAlert}>
           <Image
             width={24}
             height={24}
