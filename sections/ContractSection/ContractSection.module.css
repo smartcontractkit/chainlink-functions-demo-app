@@ -1,0 +1,5 @@
+@tailwind utilities;
+
+.container {
+  @apply bg-white-alpha-50 backdrop-blur-[10px] rounded-md p-5 py-10 my-10 min-h-[336px];
+}

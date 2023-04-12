@@ -8,6 +8,7 @@ import { GetServerSidePropsContext } from 'next/types';
 import RepoForm from '@components/RepoForm';
 import CFOpenSourceMaintainer from '@components/CFOpenSourceMaintainer';
 import { Transition } from '@headlessui/react';
+import ContractSection from 'sections/ContractSection';
 
 interface IndexPageProps {
   user: User;
@@ -49,7 +50,7 @@ export default function IndexPage({ user }: IndexPageProps) {
   return (
     <>
       <Navbar isOpenM={isOpenM} />
-      <div className="w-full max-w-[1440px] px-4 lg:px-8">
+      <div className="w-full max-w-[1440px] px-4 lg:px-8 pt-4">
         <Transition
           show={!isOpenM}
           enter="transition ease-out duration-75"
@@ -62,8 +63,9 @@ export default function IndexPage({ user }: IndexPageProps) {
           <CFOpenSourceMaintainer closeAlert={() => setIsOpenM(true)} />
         </Transition>
       </div>
-      <Wallet />
-      <RepoForm />
+      <ContractSection />
+      <div className="gradients green_gradient"></div>
+      <div className="gradients blue_gradient"></div>
     </>
   );
 }
