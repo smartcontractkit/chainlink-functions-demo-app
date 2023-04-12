@@ -23,7 +23,7 @@ const About = () => {
             <li className={styles.list}>
               1. Install & connect a wallet
               <div className={styles.wallets}>
-                {wallets.map(({ name, extension ,link }, walletIndex) => (
+                {wallets.map(({ name, extension, link }, walletIndex) => (
                   <Link href={link} target="_blank" key={walletIndex}>
                     <Image
                       src={`/logos/${name}${extension}`}
@@ -36,11 +36,11 @@ const About = () => {
               </div>
             </li>
             <li className={styles.list}>
-              2. Copy the github repository and fill in the fields
+              2. Copy the GitHub repository and fill in the fields
             </li>
             <li className={styles.list}>3. Create a contract and pay for it</li>
             <li className={styles.list}>
-              4. Watch your popularity grow on Github or claim your donations
+              4. Watch your popularity grow on GitHub or claim your donations
               for the open source maintainer?{' '}
             </li>
           </ol>
