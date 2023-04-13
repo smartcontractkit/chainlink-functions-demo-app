@@ -1,7 +1,7 @@
 @tailwind utilities;
 
 .container {
-  @apply bg-white-alpha-50 backdrop-blur-[10px] rounded-md p-5 py-10 my-10;
+  @apply bg-white-alpha-50 backdrop-blur-[10px] rounded-md p-5 lg:px-0 py-10 my-10;
 }
 
 .content_wrapper {
@@ -9,7 +9,7 @@
 }
 
 .content {
-  @apply flex flex-col lg:px-10 text-gray-300 text-sm font-normal gap-5;
+  @apply flex flex-col px-2 lg:px-10 text-gray-300 text-sm font-normal gap-5;
 }
 
 .title {

@@ -61,8 +61,8 @@ export default function IndexPage({ user }: IndexPageProps) {
         >
           <CFOpenSourceMaintainer closeAlert={() => setIsOpenM(true)} />
         </Transition>
-        <About />
         <ContractSection />
+        <About />
       </div>
       <div className="gradients green_gradient"></div>
       <div className="gradients blue_gradient"></div>
