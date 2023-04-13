@@ -43,6 +43,10 @@ a {
   @apply box-border;
 }
 
+body {
+  @apply bg-gray-900 text-white;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
