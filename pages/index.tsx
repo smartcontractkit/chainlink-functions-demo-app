@@ -1,5 +1,5 @@
 import { useEffect, Fragment, useState } from 'react';
-import { getSession } from 'next-auth/react';
+import { getSession, useSession } from 'next-auth/react';
 import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
 import { useMetamask } from '../hooks/useMetamask';
@@ -17,6 +17,7 @@ export default function IndexPage({ user }: IndexPageProps) {
   const { dispatch } = useMetamask();
   const [isOpenM, setIsOpenM] = useState(false);
   const listen = useListen();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -51,7 +52,7 @@ export default function IndexPage({ user }: IndexPageProps) {
       <Navbar isOpenM={isOpenM} />
       <div className="w-full max-w-[1440px] px-4 lg:px-8 pt-4">
         <Transition
-          show={!isOpenM}
+          show={!isOpenM && Boolean(session && session?.user)}
           enter="transition ease-out duration-75"
           enterFrom="transform opacity-0 -translate-y-full"
           enterTo="transform opacity-100 translate-y-0"

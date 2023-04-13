@@ -44,7 +44,7 @@ export default function Navbar({ isOpenM }: Props) {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                 {/* Profile dropdown */}
                 <Transition
-                  show={isOpenM}
+                  show={isOpenM && Boolean(session && session?.user)}
                   enter="transition ease-out duration-100"
                   enterFrom="transform opacity-0 translate-y-full"
                   enterTo="transform opacity-100 translate-y-0"
