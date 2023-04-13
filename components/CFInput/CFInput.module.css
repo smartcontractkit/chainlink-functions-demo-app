@@ -5,7 +5,7 @@
 }
 
 .input_container {
-  @apply flex gap-3 py-3 px-4 border bg-white-alpha-50 rounded-md items-center;
+  @apply flex gap-3 py-3 px-4 border bg-white-alpha-50 rounded-md items-center h-12;
 }
 
 .input {
@@ -17,5 +17,5 @@
 }
 
 .icon_with_text {
-  @apply flex items-center gap-3 pr-4 border-r border-r-white-alpha-300 uppercase;
+  @apply flex items-center gap-3 pr-6 border-r border-r-white-alpha-300 uppercase;
 }

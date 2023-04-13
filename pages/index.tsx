@@ -1,13 +1,12 @@
 import { useEffect, Fragment, useState } from 'react';
-import { useSession, signIn, signOut, getSession } from 'next-auth/react';
-import Wallet from '@components/Wallet';
+import { getSession, useSession } from 'next-auth/react';
 import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
 import { useMetamask } from '../hooks/useMetamask';
 import { GetServerSidePropsContext } from 'next/types';
-import RepoForm from '@components/RepoForm';
 import CFOpenSourceMaintainer from '@components/CFOpenSourceMaintainer';
 import { Transition } from '@headlessui/react';
+import ContractSection from 'sections/ContractSection';
 import About from 'sections/About';
 
 interface IndexPageProps {
@@ -18,6 +17,7 @@ export default function IndexPage({ user }: IndexPageProps) {
   const { dispatch } = useMetamask();
   const [isOpenM, setIsOpenM] = useState(false);
   const listen = useListen();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -50,9 +50,9 @@ export default function IndexPage({ user }: IndexPageProps) {
   return (
     <>
       <Navbar isOpenM={isOpenM} />
-      <div className="w-full max-w-[1440px] px-4 lg:px-8">
+      <div className="w-full max-w-[1440px] px-4 lg:px-8 pt-4">
         <Transition
-          show={!isOpenM}
+          show={!isOpenM && Boolean(session && session?.user)}
           enter="transition ease-out duration-75"
           enterFrom="transform opacity-0 -translate-y-full"
           enterTo="transform opacity-100 translate-y-0"
@@ -62,11 +62,11 @@ export default function IndexPage({ user }: IndexPageProps) {
         >
           <CFOpenSourceMaintainer closeAlert={() => setIsOpenM(true)} />
         </Transition>
-
+        <ContractSection />
         <About />
       </div>
-      <Wallet />
-      <RepoForm />
+      <div className="gradients green_gradient"></div>
+      <div className="gradients blue_gradient"></div>
     </>
   );
 }

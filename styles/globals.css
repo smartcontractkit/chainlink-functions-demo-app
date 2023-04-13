@@ -24,6 +24,16 @@ body {
   font-family: var(--font-family-inter);
   @apply p-0 m-0;
 }
+.gradients {
+  @apply rounded-full blur-[150px] w-[800px] h-[800px] fixed top-0 -z-20;
+}
+
+.green_gradient{
+  @apply -left-32 blur-[150px] bg-green-gradient;
+}
+.blue_gradient{
+  @apply -right-32 -top-14 blur-[150px] bg-blue-gradient;
+}
 
 a {
   @apply no-underline text-inherit;
@@ -33,11 +43,7 @@ a {
   @apply box-border;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    @apply bg-black text-white;
-  }
+body {
+  @apply bg-gray-900 text-white;
 }
+

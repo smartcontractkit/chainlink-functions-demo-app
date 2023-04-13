@@ -25,7 +25,7 @@ const CFDropDown = ({ options, defaultValue, onChange }: Props) => {
 
   return (
     <Listbox value={selected} onChange={handleOnChange}>
-      <div className="relative mt-1 group">
+      <div className="relative group">
         <Listbox.Button className={styles.list_btn}>
           <span className="block truncate text-gray-200">{selected.name}</span>
           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
