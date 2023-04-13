@@ -9,7 +9,7 @@ export const breakdown = [
   },
   {
     icon: 'shield',
-    text: 'Your Github is completely safe',
+    text: 'Your GitHub is completely safe',
   },
 ];
 

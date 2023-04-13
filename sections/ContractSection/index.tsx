@@ -11,7 +11,7 @@ const ContractSection = () => {
       <div className={styles.content_wrapper}>
         <div>
           <h1 className={styles.info_heading}>
-            Spin up your Github account with a Chainlink
+            Spin up your GitHub account with a Chainlink
           </h1>
           <p className={styles.info_description}>
             Participating in open source projects on GitHub can help you gain
@@ -29,7 +29,7 @@ const ContractSection = () => {
             <CFInput
               type="url"
               iconType="link"
-              placeholder="Enter Github repo URL"
+              placeholder="Enter GitHub repo URL"
               onInput={() => null}
             />
           </div>
