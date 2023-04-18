@@ -2,12 +2,22 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
 import CFUser from './CFUser';
+import { useMetamask } from 'hooks/useMetamask';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function UserProfileDropDown() {
+
+  const {
+    dispatch,
+    state,
+  } = useMetamask();
+
+  const handleDisconnect = () => {
+    dispatch({ type: 'disconnect' });
+  };
   return (
     <Menu as="div" className="relative ml-3">
       <div>
@@ -34,6 +44,9 @@ export default function UserProfileDropDown() {
                   active ? 'bg-gray-700' : 'bg-gray-800',
                   'block px-4 py-3 text-sm text-white'
                 )}
+                onClick={() => {
+                  setTimeout(() => handleDisconnect(), 300);
+                }}
               >
                 Sign out
               </Link>

@@ -6,6 +6,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import UserProfileDropDown from './UserProfileDropDown';
 import CFButton from './CFButton';
 import CFOpenSourceMaintainer from './CFOpenSourceMaintainer';
+import { useListen } from 'hooks/useListen';
+import { useMetamask } from 'hooks/useMetamask';
 
 interface Props {
   isOpenM: boolean;
@@ -13,6 +15,31 @@ interface Props {
 export default function Navbar({ isOpenM }: Props) {
   // NextAuth Session Data
   const { data: session, status } = useSession();
+
+  const {
+    dispatch,
+    state: { status: metaStatus, isMetamaskInstalled, wallet, balance },
+  } = useMetamask();
+  const listen = useListen();
+
+  const handleConnect = async () => {
+    dispatch({ type: 'loading' });
+    const accounts = await window.ethereum.request({
+      method: 'eth_requestAccounts',
+    });
+
+    if (accounts.length > 0) {
+      const balance = await window.ethereum!.request({
+        method: 'eth_getBalance',
+        params: [accounts[0], 'latest'],
+      });
+
+      dispatch({ type: 'connect', wallet: accounts[0], balance });
+
+      // we can register an event listener for changes to the users wallet
+      listen();
+    }
+  };
   return (
     <Disclosure as="nav" className="bg-transparent">
       {({ open }) => (
@@ -60,7 +87,11 @@ export default function Navbar({ isOpenM }: Props) {
                   <CFButton
                     text="Connect wallet"
                     size="md"
-                    onClick={() => signIn()}
+                    onClick={() => {
+                      handleConnect();
+                      setTimeout(() => signIn(), 300);
+                      // signIn();
+                    }}
                   />
                 )}
               </div>
