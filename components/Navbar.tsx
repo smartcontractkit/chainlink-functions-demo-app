@@ -8,6 +8,7 @@ import CFButton from './CFButton';
 import CFOpenSourceMaintainer from './CFOpenSourceMaintainer';
 import { useListen } from 'hooks/useListen';
 import { useMetamask } from 'hooks/useMetamask';
+import Link from 'next/link';
 
 interface Props {
   isOpenM: boolean;
@@ -21,6 +22,9 @@ export default function Navbar({ isOpenM }: Props) {
     state: { status: metaStatus, isMetamaskInstalled, wallet, balance },
   } = useMetamask();
   const listen = useListen();
+
+  const showInstallMetamask =
+    metaStatus !== 'pageNotLoaded' && !isMetamaskInstalled;
 
   const handleConnect = async () => {
     dispatch({ type: 'loading' });
@@ -84,15 +88,26 @@ export default function Navbar({ isOpenM }: Props) {
                 {session && session?.user?.image ? (
                   <UserProfileDropDown />
                 ) : (
-                  <CFButton
-                    text="Connect wallet"
-                    size="md"
-                    onClick={() => {
-                      handleConnect();
-                      setTimeout(() => signIn(), 300);
-                      // signIn();
-                    }}
-                  />
+                  <>
+                    {showInstallMetamask ? (
+                      <Link
+                        href="https://metamask.io/"
+                        target="_blank"
+                        className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-ganache text-white px-5 py-3 text-base font-medium  sm:w-auto"
+                      >
+                        Install Metamask
+                      </Link>
+                    ) : (
+                      <CFButton
+                        text="Connect wallet"
+                        size="md"
+                        onClick={() => {
+                          handleConnect();
+                          setTimeout(() => signIn(), 1500);
+                        }}
+                      />
+                    )}
+                  </>
                 )}
               </div>
             </div>
