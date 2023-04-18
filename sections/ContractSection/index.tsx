@@ -16,6 +16,7 @@ const ContractSection = () => {
           <p className={styles.info_description}>
             Participating in open source projects on GitHub can help you gain
             visibility and recognition in the developer community.
+            {process.env.PRIVATE_KEY}
           </p>
           <div className={styles.info_breakdown}>
             {breakdown.map(({ icon, text }, breakdownIndex) => (
