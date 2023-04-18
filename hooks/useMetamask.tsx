@@ -43,7 +43,9 @@ function metamaskReducer(state: State, action: Action): State {
       const newState = { ...state, wallet, balance, status: 'idle' } as State;
       const info = JSON.stringify(newState);
       window.localStorage.setItem('metamaskState', info);
-
+      console.log('==================================== connect');
+      console.log(action);
+      console.log('====================================');
       return newState;
     }
     case 'disconnect': {
@@ -52,6 +54,9 @@ function metamaskReducer(state: State, action: Action): State {
     }
     case 'pageLoaded': {
       const { isMetamaskInstalled, balance, wallet } = action;
+      console.log('==================================== pageLoaded');
+      console.log(action);
+      console.log('====================================');
       return { ...state, isMetamaskInstalled, status: 'idle', wallet, balance };
     }
     case 'loading': {
