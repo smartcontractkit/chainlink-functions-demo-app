@@ -89,8 +89,7 @@ export default function Navbar({ isOpenM }: Props) {
                     size="md"
                     onClick={() => {
                       handleConnect();
-                      setTimeout(() => signIn(), 300);
-                      // signIn();
+                      setTimeout(() => signIn(), 1500);
                     }}
                   />
                 )}
