@@ -17,5 +17,17 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"]
+  "plugins": ["@typescript-eslint"],
+  "overrides": [
+    {
+      "files": [
+        "Functions-*.js"
+      ],
+      "parserOptions": {
+        "ecmaFeatures": {
+          "globalReturn": true
+        }
+      }
+    }
+  ]
 }

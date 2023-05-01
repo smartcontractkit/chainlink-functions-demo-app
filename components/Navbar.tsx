@@ -85,7 +85,7 @@ export default function Navbar({ isOpenM }: Props) {
                 >
                   <CFOpenSourceMaintainer isNav={true} />
                 </Transition>
-                {session && session?.user?.image ? (
+                {balance ? (
                   <UserProfileDropDown />
                 ) : (
                   <>
@@ -103,7 +103,7 @@ export default function Navbar({ isOpenM }: Props) {
                         size="md"
                         onClick={() => {
                           handleConnect();
-                          setTimeout(() => signIn(), 1500);
+                          // setTimeout(() => signIn(), 1500);
                         }}
                       />
                     )}

@@ -14,3 +14,5 @@ type User = {
   email: string;
   imageUrl?: string;
 };
+
+declare module 'ethjs-unit';

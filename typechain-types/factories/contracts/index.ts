@@ -4,3 +4,4 @@
 export * as dev from "./dev";
 export { AutomatedFunctionsConsumer__factory } from "./AutomatedFunctionsConsumer__factory";
 export { FunctionsConsumer__factory } from "./FunctionsConsumer__factory";
+export { GitHubFunctions__factory } from "./GitHubFunctions__factory";

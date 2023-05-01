@@ -5,3 +5,4 @@ exports.accounts = require('./accounts');
 exports.balance = require('./balance');
 exports.blockNumber = require('./block-number');
 exports.donate = require('./donate');
+exports.deployCalculator = require('./deploy-calculator');

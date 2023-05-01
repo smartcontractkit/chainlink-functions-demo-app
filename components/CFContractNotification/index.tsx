@@ -7,9 +7,10 @@ import CFButton from '@components/CFButton';
 
 interface Props {
   status: 'success' | 'fail';
+  onClear: () => void;
 }
 
-const CFContractNotification = ({ status }: Props) => {
+const CFContractNotification = ({ status, onClear }: Props) => {
   const circleClasses = classNames(styles.circle, {
     'bg-green-300': status === 'success',
     'bg-red-300': status === 'fail',
@@ -35,7 +36,7 @@ const CFContractNotification = ({ status }: Props) => {
       </div>
       <div className={styles.message}>{data.message}</div>
 
-      <CFButton size="md" text={data.btnText} />
+      <CFButton size="md" text={data.btnText} onClick={onClear} />
     </div>
   );
 };

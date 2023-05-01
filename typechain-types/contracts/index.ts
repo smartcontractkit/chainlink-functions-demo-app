@@ -5,3 +5,4 @@ import type * as dev from "./dev";
 export type { dev };
 export type { AutomatedFunctionsConsumer } from "./AutomatedFunctionsConsumer";
 export type { FunctionsConsumer } from "./FunctionsConsumer";
+export type { GitHubFunctions } from "./GitHubFunctions";

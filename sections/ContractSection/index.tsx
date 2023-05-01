@@ -4,8 +4,119 @@ import { breakdown, contractOptions } from './data';
 import CFInput from '@components/CFInput';
 import CFDropDown from '@components/CFDropDown';
 import CFButton from '@components/CFButton';
+import { useMetamask } from '../../hooks/useMetamask';
+import { useState } from 'react';
+import unit from 'ethjs-unit';
+import CFContractNotification from '@components/CFContractNotification';
+import { ethers } from 'ethers';
+import GHABI from '../../build/artifacts/contracts/GitHubFunctions.sol/GitHubFunctions.json';
+import BillingRegistryContract from '../../build/artifacts/contracts/dev/functions/FunctionsBillingRegistry.sol/FunctionsBillingRegistry.json';
+import LinkTokenContract from '../../build/artifacts/@chainlink/contracts/src/v0.4/LinkToken.sol/LinkToken.json';
+
+const registryAddress = '0xEe9Bf52E5Ea228404bB54BCFbbDa8c21131b9039'; // Hardcoded Mumbai registry
+const linkTokenAddress = '0x326C977E6efc84E512bB9C30f76E30c160eD06FB';
 
 const ContractSection = () => {
+  const { state: metamaskState } = useMetamask();
+  const [matic, setMatic] = useState(0);
+  const [stars, setStars] = useState(0);
+  const [repo, setRepo] = useState<string | undefined>(undefined);
+  const [state, setState] = useState<
+    'uninitialized' | 'pending' | 'success' | 'fail'
+  >('uninitialized');
+
+  function handleDonation() {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const billingRegistry = new ethers.Contract(
+      registryAddress,
+      BillingRegistryContract.abi,
+      signer
+    );
+    const linkToken = new ethers.Contract(
+      linkTokenAddress,
+      LinkTokenContract.abi,
+      signer
+    );
+    const GHContract = new ethers.Contract(
+      '0xEEE5Ca591CED3f8547AA0413bF2d9E91a379cc5B',
+      GHABI.abi,
+      signer
+    );
+
+    (async () => {
+      const createSubscriptionTx = await billingRegistry.createSubscription();
+      const createSubscriptionReceipt = await createSubscriptionTx.wait();
+      const subscriptionId =
+        createSubscriptionReceipt.events[0].args['subscriptionId'];
+
+      // fund subscription
+      const fundTx = await linkToken.transferAndCall(
+        registryAddress,
+        ethers.utils.parseUnits('1'),
+        ethers.utils.defaultAbiCoder.encode(['uint64'], [subscriptionId])
+      );
+      await fundTx.wait(1);
+
+      const addTx = await billingRegistry.addConsumer(
+        subscriptionId,
+        GHContract.address
+      );
+      await addTx.wait(1);
+
+      // call functions
+      const calculationTx = await GHContract.multiplyMetricWithEther(
+        [
+          `https://github.com/${repo}`,
+          `${stars}`,
+          unit.toWei(matic, 'ether').toString(10),
+        ],
+        subscriptionId,
+        300_000,
+        {
+          gasLimit: 600_000,
+        }
+      );
+      await calculationTx.wait(1);
+
+      // Replace random wait with listening to message
+      await new Promise((r) => setTimeout(r, 20_000));
+
+      if ((await GHContract.latestError()) !== '0x') {
+        throw new Error('Chainlink function did not finish successfully.');
+      }
+      const calculatedAmount = await GHContract.latestResponse();
+
+      try {
+        await window.ethereum.request({
+          method: 'eth_sendTransaction',
+          params: [
+            {
+              from: metamaskState.wallet,
+              to: '0x35Ad5b0aDFa55e39873a65Adc66129e76C272E8C', // Hardcoded escrow wallet
+              value: calculatedAmount,
+            },
+          ],
+        });
+        await fetch('/api/donation/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            repo: `https://github.com/${repo}`,
+            stars,
+            amount: calculatedAmount,
+          }),
+        });
+        setState('success');
+      } catch (e) {
+        setState('fail');
+        console.log(e);
+      }
+    })();
+  }
+
   return (
     <section className={styles.container}>
       <div className={styles.content_wrapper}>
@@ -25,41 +136,53 @@ const ContractSection = () => {
         </div>
 
         <div className={styles.inputs}>
-          <div>
-            <CFInput
-              type="url"
-              iconType="link"
-              placeholder="Enter GitHub repo URL"
-              onInput={() => null}
+          {state === 'success' || state === 'fail' ? (
+            <CFContractNotification
+              status={state}
+              onClear={() => {
+                setState('uninitialized');
+              }}
             />
-          </div>
-          <div className={styles.option_count}>
-            <CFDropDown
-              options={contractOptions}
-              defaultValue={contractOptions[0]}
-            />
-            <CFInput
-              type="text"
-              placeholder="Enter number"
-              onInput={() => null}
-            />
-          </div>
-          <div>
-            <CFInput
-              type="text"
-              iconType="matic"
-              placeholder="Enter number of MATIC"
-              onInput={() => null}
-            />
-          </div>
-          <div className={styles.btn_wrapper}>
-            <CFButton
-              text="Execute contract"
-              size="lg"
-              onClick={() => null}
-              disabled={false}
-            />
-          </div>
+          ) : (
+            <>
+              <div>
+                <CFInput
+                  type="url"
+                  iconType="link"
+                  placeholder="Enter GitHub repo URL"
+                  base={`https://github.com/${repo || ''}`}
+                  onInput={(value) => setRepo(value.slice(19))}
+                />
+              </div>
+              <div className={styles.option_count}>
+                <CFDropDown
+                  options={contractOptions}
+                  defaultValue={contractOptions[0]}
+                />
+                <CFInput
+                  type="text"
+                  placeholder="Enter number"
+                  onInput={(value) => setStars(+value)}
+                />
+              </div>
+              <div>
+                <CFInput
+                  type="text"
+                  iconType="matic"
+                  placeholder="Enter number of MATIC"
+                  onInput={(value) => setMatic(+value)}
+                />
+              </div>
+              <div className={styles.btn_wrapper}>
+                <CFButton
+                  text="Execute contract"
+                  size="lg"
+                  onClick={handleDonation}
+                  disabled={!(matic > 0 && stars > 0 && repo)}
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>

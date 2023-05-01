@@ -1,4 +1,3 @@
-// @ts-nocheck
 import NextAuth, { Session, Account, User } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import GithubProvider from 'next-auth/providers/github';
@@ -20,7 +19,7 @@ export const authOptions = {
       user: User;
     }): Promise<Session> {
       session.user.id = token.id as number;
-      session.user.token = token.accessToken;
+      session.user.token = token.accessToken as string;
       return session;
     },
     async jwt({
@@ -29,8 +28,8 @@ export const authOptions = {
       account,
     }: {
       token: JWT;
-      account: Account;
-      user: User;
+      account?: Account | null;
+      user?: User | null;
     }): Promise<JWT> {
       if (user) {
         token.id = user.id;

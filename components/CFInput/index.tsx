@@ -8,9 +8,10 @@ interface Props {
   iconType?: 'matic' | 'link' | null;
   placeholder: string;
   onInput: (value: string) => void;
+  base?: string;
 }
 
-const CFInput = ({ type, iconType, placeholder, onInput }: Props) => {
+const CFInput = ({ type, iconType, placeholder, onInput, base }: Props) => {
   const [error, setError] = useState(false);
   const [onFocus, setOnFocus] = useState(false);
   const [value, setValue] = useState<string | number>('');
@@ -71,6 +72,7 @@ const CFInput = ({ type, iconType, placeholder, onInput }: Props) => {
           onInput={handleInput}
           className={styles.input}
           placeholder={placeholder}
+          value={base}
         />
       </div>
       {error && (

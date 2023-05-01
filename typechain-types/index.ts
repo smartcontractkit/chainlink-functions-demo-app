@@ -104,3 +104,5 @@ export type { Pausable } from "./contracts/dev/vendor/openzeppelin-solidity/v.4.
 export { Pausable__factory } from "./factories/contracts/dev/vendor/openzeppelin-solidity/v.4.8.0/contracts/security/Pausable__factory";
 export type { FunctionsConsumer } from "./contracts/FunctionsConsumer";
 export { FunctionsConsumer__factory } from "./factories/contracts/FunctionsConsumer__factory";
+export type { GitHubFunctions } from "./contracts/GitHubFunctions";
+export { GitHubFunctions__factory } from "./factories/contracts/GitHubFunctions__factory";

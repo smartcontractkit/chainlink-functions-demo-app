@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 
 const dot = `rounded-full h-2 w-2 mx-0.5 bg-current animate-[blink_1s_ease_0s_infinite_normal_both]"`;
-let style = { animationDelay: '0.2s' };
+const style = { animationDelay: '0.2s' };
 
 export const Loading: FC = () => {
   return (

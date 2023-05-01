@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { run, ethers } from 'hardhat';
 import { FunctionsConsumer } from '../../../typechain-types';

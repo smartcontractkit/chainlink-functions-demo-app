@@ -204,6 +204,10 @@ declare module "hardhat/types/runtime" {
       name: "FunctionsConsumer",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.FunctionsConsumer__factory>;
+    getContractFactory(
+      name: "GitHubFunctions",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.GitHubFunctions__factory>;
 
     getContractAt(
       name: "ERC677Token",
@@ -445,6 +449,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.FunctionsConsumer>;
+    getContractAt(
+      name: "GitHubFunctions",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.GitHubFunctions>;
 
     // default types
     getContractFactory(

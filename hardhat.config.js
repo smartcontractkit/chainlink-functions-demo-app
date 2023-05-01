@@ -1,5 +1,8 @@
-require('@nomicfoundation/hardhat-toolbox');
+/* eslint-disable @typescript-eslint/no-var-requires */
 require('@openzeppelin/hardhat-upgrades');
+
+require('@typechain/hardhat');
+require('@typechain/ethers-v5');
 
 require('./tasks');
 
@@ -34,12 +37,12 @@ const config = {
     cache: './cache',
     artifacts: './build/artifacts',
   },
-  defaultNetwork: 'hardhat',
+  defaultNetwork: 'mumbai',
   networks: {
     hardhat: {
       allowUnlimitedContractSize: true,
       hardfork: 'merge',
-      chainId: 31337,
+      chainId: 1337,
       accounts: process.env.PRIVATE_KEY
         ? [
             {
