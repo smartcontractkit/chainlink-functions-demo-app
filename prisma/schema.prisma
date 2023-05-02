@@ -11,8 +11,10 @@ datasource db {
 }
 
 model Donation {
-  id        String  @id @map("_id")
-  repo      String
-  stars     Int
-  amount    String
+  id         String    @id @map("_id")
+  repo       String
+  stars      Int
+  amount     String
+  createdAt  DateTime  @default(now())
+  claimedAt  DateTime?
 }

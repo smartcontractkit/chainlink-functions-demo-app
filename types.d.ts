@@ -16,3 +16,4 @@ type User = {
 };
 
 declare module 'ethjs-unit';
+declare module 'hardhat';

@@ -101,10 +101,7 @@ export default function Navbar({ isOpenM }: Props) {
                       <CFButton
                         text="Connect wallet"
                         size="md"
-                        onClick={() => {
-                          handleConnect();
-                          // setTimeout(() => signIn(), 1500);
-                        }}
+                        onClick={handleConnect}
                       />
                     )}
                   </>
