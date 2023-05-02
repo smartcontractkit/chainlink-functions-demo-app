@@ -6,6 +6,7 @@ import { useMetamask } from '../../hooks/useMetamask';
 import { signIn } from 'next-auth/react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/router';
+import { useClaim } from '../../hooks/useClaim';
 
 interface Props {
   isNav?: boolean;
@@ -13,11 +14,7 @@ interface Props {
 }
 
 const CFOpenSourceMaintainer = ({ isNav, closeAlert }: Props) => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-  const [amount, setAmount] = useState<undefined | number>();
-  const { state } = useMetamask();
+  const { claim, amount, isClaiming } = useClaim();
 
   const containerClasses = classNames(styles.container, {
     'py-2': isNav,
@@ -37,26 +34,7 @@ const CFOpenSourceMaintainer = ({ isNav, closeAlert }: Props) => {
     closeAlert && closeAlert();
   };
 
-  useEffect(() => {
-    (async () => {
-      if (searchParams.get('claim') === 'continue') {
-        const res = await fetch('/api/claim', {
-          method: 'POST',
-          body: JSON.stringify({ wallet: state.wallet }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        setAmount(
-          parseInt((await res.json()).value, 16) / 1_000_000_000_000_000_000
-        );
-        const params = new URLSearchParams(searchParams);
-        params.delete('claim');
-        router.replace(pathname + '?' + params.toString());
-      }
-    })();
-  });
+  useEffect(() => claim, []);
   const handleClaim = () => {
     signIn('GitHub', {
       callbackUrl: '/?claim=continue',
@@ -75,7 +53,7 @@ const CFOpenSourceMaintainer = ({ isNav, closeAlert }: Props) => {
           />
         )}
         <div className={styles.question_claim}>
-          {searchParams.get('claim') === 'continue' && amount == null ? (
+          {isClaiming && amount == null ? (
             <span className={questionClasses}>checking ...</span>
           ) : amount == null ? (
             <>

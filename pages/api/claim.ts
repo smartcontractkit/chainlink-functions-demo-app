@@ -14,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(401).end();
   }
   if (!req.body.wallet) {
-    return res.status(421).send('We need a wallet');
+    return res.status(422).send('We need a wallet');
   }
 
   const octokit = new Octokit({
