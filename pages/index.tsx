@@ -52,7 +52,7 @@ export default function IndexPage({ user }: IndexPageProps) {
       <Navbar isOpenM={isOpenM} />
       <div className="w-full max-w-[1440px] px-4 lg:px-8 pt-4 mx-auto">
         <Transition
-          show={!isOpenM && Boolean(session && session?.user)}
+          show={!isOpenM}
           enter="transition ease-out duration-75"
           enterFrom="transform opacity-0 -translate-y-full"
           enterTo="transform opacity-100 translate-y-0"
