@@ -6,7 +6,7 @@ import { Octokit } from 'octokit';
 
 import prisma from '@lib/prisma';
 import { authOptions } from './auth/[...nextauth]';
-import { ethers } from 'hardhat';
+import { ethers } from 'ethers';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getServerSession(req, res, authOptions);
@@ -49,10 +49,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       .reduce((sum, donation) => sum + parseInt(donation.amount, 16), 0)
       .toString(16);
 
-  const [owner] = await ethers.getSigners();
+  const provider = new ethers.providers.InfuraProvider('maticmum');
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY || '');
+  const signer = wallet.connect(provider);
 
   if (value !== '0x0') {
-    await owner.sendTransaction({
+    await signer.sendTransaction({
       to: req.body.wallet,
       value,
     });

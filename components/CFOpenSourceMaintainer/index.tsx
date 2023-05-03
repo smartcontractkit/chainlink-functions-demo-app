@@ -1,11 +1,10 @@
 import Image from 'next/image';
-import styles from './CFOpenSourceMaintainer.module.css';
 import classNames from 'classnames';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { getProviders, signIn } from 'next-auth/react';
+
+import styles from './CFOpenSourceMaintainer.module.css';
 import { useMetamask } from '../../hooks/useMetamask';
-import { signIn } from 'next-auth/react';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useRouter } from 'next/router';
 import { useClaim } from '../../hooks/useClaim';
 
 interface Props {
@@ -14,6 +13,7 @@ interface Props {
 }
 
 const CFOpenSourceMaintainer = ({ isNav, closeAlert }: Props) => {
+  const { state } = useMetamask();
   const { claim, amount, isClaiming } = useClaim();
 
   const containerClasses = classNames(styles.container, {
@@ -34,12 +34,26 @@ const CFOpenSourceMaintainer = ({ isNav, closeAlert }: Props) => {
     closeAlert && closeAlert();
   };
 
-  useEffect(() => claim, []);
+  /**
+   * The next effect and handler combine to build the full payout flow.
+   *
+   * On click the handler will kick off the authentication process to ensure the end-user is the true owner of its
+   * GitHub repositories. On the oAuth callback flow the effect will kick in and trigger the payout logic on our server.
+   * It needs to watch the state as there is a race condition between the effect and the wallet being registered in the
+   * state.
+   */
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(claim, [state]);
+
   const handleClaim = () => {
-    signIn('GitHub', {
-      callbackUrl: '/?claim=continue',
-    });
+    (async () => {
+      const providers = { ...(await getProviders()) };
+      await signIn(Object.values(providers)[0].id, {
+        callbackUrl: '/?claim=continue',
+      });
+    })();
   };
+  /** End claim flow */
 
   return (
     <div className={containerClasses}>

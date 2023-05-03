@@ -14,7 +14,7 @@ interface IndexPageProps {
 }
 
 export default function IndexPage({ user }: IndexPageProps) {
-  const { dispatch } = useMetamask();
+  const { dispatch, state } = useMetamask();
   const [isOpenM, setIsOpenM] = useState(false);
   const listen = useListen();
   const { data: session, status } = useSession();
@@ -60,7 +60,9 @@ export default function IndexPage({ user }: IndexPageProps) {
           leaveFrom="transform opacity-100 translate-y-0"
           leaveTo="transform opacity-0 -translate-y-full"
         >
-          <CFOpenSourceMaintainer closeAlert={() => setIsOpenM(true)} />
+          {state.balance && (
+            <CFOpenSourceMaintainer closeAlert={() => setIsOpenM(true)} />
+          )}
         </Transition>
         <ContractSection />
         <About />

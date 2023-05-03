@@ -3,17 +3,15 @@ import Link from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
 import CFUser from './CFUser';
 import { useMetamask } from 'hooks/useMetamask';
+import { useSession } from 'next-auth/react';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function UserProfileDropDown() {
-
-  const {
-    dispatch,
-    state,
-  } = useMetamask();
+  const { dispatch, state } = useMetamask();
+  const { data: session, status } = useSession();
 
   const handleDisconnect = () => {
     dispatch({ type: 'disconnect' });
@@ -38,18 +36,17 @@ export default function UserProfileDropDown() {
         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md shadow-lg focus:outline-none">
           <Menu.Item>
             {({ active }) => (
-              <Link
-                href="/api/auth/signout"
+              <span
                 className={classNames(
                   active ? 'bg-gray-700' : 'bg-gray-800',
-                  'block px-4 py-3 text-sm text-white'
+                  'block px-4 py-3 text-sm text-white cursor-pointer'
                 )}
                 onClick={() => {
-                  setTimeout(() => handleDisconnect(), 300);
+                  handleDisconnect();
                 }}
               >
-                Sign out
-              </Link>
+                Disconnect Wallet
+              </span>
             )}
           </Menu.Item>
         </Menu.Items>

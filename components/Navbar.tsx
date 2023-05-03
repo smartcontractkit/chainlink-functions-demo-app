@@ -83,7 +83,7 @@ export default function Navbar({ isOpenM }: Props) {
                   leaveFrom="transform opacity-100 translate-y-0"
                   leaveTo="transform opacity-0 translate-y-full"
                 >
-                  <CFOpenSourceMaintainer isNav={true} />
+                  {balance && <CFOpenSourceMaintainer isNav={true} />}
                 </Transition>
                 {balance ? (
                   <UserProfileDropDown />

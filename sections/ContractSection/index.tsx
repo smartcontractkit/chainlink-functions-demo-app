@@ -178,7 +178,7 @@ const ContractSection = () => {
                   text="Execute contract"
                   size="lg"
                   onClick={handleDonation}
-                  disabled={!(matic > 0 && stars > 0 && repo)}
+                  disabled={!(matic > 0 && stars > 0 && repo && metamaskState.wallet)}
                 />
               </div>
             </>
