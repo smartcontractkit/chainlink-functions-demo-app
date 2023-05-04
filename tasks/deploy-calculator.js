@@ -23,7 +23,6 @@ task(
       networkConfig.mumbai.functionsOracleProxy,
       source
     );
-    // await contract.deployed();
     await contract.deployTransaction.wait(1);
 
     console.log(`Deployed contract to ${contract.address}`);
