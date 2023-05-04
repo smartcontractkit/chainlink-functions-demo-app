@@ -80,8 +80,7 @@ const CFOpenSourceMaintainer = ({ isNav, closeAlert }: Props) => {
             </>
           ) : amount === 0 ? (
             <span className={questionClasses}>
-              Sorry, it seems like there aren&apos;t any donations made to your
-              repositories. Make sure to check back later!
+              No donations available for your repositories. Check back later.
             </span>
           ) : (
             <span className={questionClasses}>
