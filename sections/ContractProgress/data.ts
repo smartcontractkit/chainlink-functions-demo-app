@@ -22,7 +22,7 @@ export const steps: IStep[] = [
   {
     count: 4,
     label: 'Calculating MATIC',
-    tip: 'Using Chainlink Functions to calculate to total amount of MATIC pledged.',
+    tip: 'Using Chainlink Functions to calculate the total amount of MATIC pledged.',
   },
   {
     count: 5,

@@ -28,8 +28,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     data: { login },
   } = await octokit.request('GET /user/' + session.user.id);
   const repos = (
-    await octokit.request('GET /users/' + login + '/repos')
-  ).data.map((repo: GithubProfile) => `https://github.com/${repo.full_name}`);
+    await octokit.rest.repos.listForUser({
+      username: login,
+      per_page: 100,
+    })
+  ).data.map((repo) => `https://github.com/${repo.full_name}`);
 
   const donations = await prisma.donation.findMany({
     where: {
