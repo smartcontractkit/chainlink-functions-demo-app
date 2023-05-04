@@ -53,7 +53,7 @@ const config = {
         : [],
     },
     mumbai: {
-      url: process.env.MUMBAI_RPC_URL,
+      url: 'https://polygon-mumbai.g.alchemy.com/v2/tCbwTAqlofFnmbVORepuHNcsrjNXWdRJ',
       accounts: [process.env.PRIVATE_KEY],
       saveDeployments: true,
       oracle: 'foo',

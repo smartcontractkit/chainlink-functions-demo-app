@@ -13,8 +13,6 @@ interface Props {
   isOpenM: boolean;
 }
 export default function Navbar({ isOpenM }: Props) {
-  // NextAuth Session Data
-
   const {
     dispatch,
     state: { status: metaStatus, isMetamaskInstalled, balance },
@@ -31,7 +29,7 @@ export default function Navbar({ isOpenM }: Props) {
     });
 
     if (accounts.length > 0) {
-      const balance = await window.ethereum!.request({
+      const balance = await window.ethereum?.request({
         method: 'eth_getBalance',
         params: [accounts[0], 'latest'],
       });

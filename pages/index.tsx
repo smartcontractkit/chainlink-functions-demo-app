@@ -1,4 +1,4 @@
-import { useEffect, Fragment, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getSession } from 'next-auth/react';
 import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
@@ -9,11 +9,7 @@ import { Transition } from '@headlessui/react';
 import ContractSection from 'sections/ContractSection';
 import About from 'sections/About';
 
-interface IndexPageProps {
-  user: User;
-}
-
-export default function IndexPage({ user }: IndexPageProps) {
+export default function IndexPage() {
   const { dispatch, state } = useMetamask();
   const [isOpenM, setIsOpenM] = useState(false);
   const listen = useListen();
@@ -24,8 +20,8 @@ export default function IndexPage({ user }: IndexPageProps) {
       setIsOpenM(openM);
       // start by checking if window.ethereum is present, indicating a wallet extension
       const ethereumProviderInjected = typeof window.ethereum !== 'undefined';
-      // this could be other wallets so we can verify if we are dealing with metamask
-      // using the boolean constructor to be explecit and not let this be used as a falsy value (optional)
+      // this could be other wallets, so we can verify if we are dealing with metamask
+      // using the boolean constructor to be explicit and not let this be used as a falsy value (optional)
       const isMetamaskInstalled =
         ethereumProviderInjected && Boolean(window.ethereum.isMetaMask);
 
@@ -44,6 +40,8 @@ export default function IndexPage({ user }: IndexPageProps) {
 
       dispatch({ type: 'pageLoaded', isMetamaskInstalled, wallet, balance });
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

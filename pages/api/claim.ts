@@ -8,7 +8,7 @@ import prisma from '@lib/prisma';
 import { authOptions } from './auth/[...nextauth]';
 import { ethers } from 'ethers';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getServerSession(req, res, authOptions);
   if (!session) {
     return res.status(401).end();
@@ -72,3 +72,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   res.end(JSON.stringify({ value }));
 };
+
+export default handler;

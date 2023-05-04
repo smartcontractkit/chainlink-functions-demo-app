@@ -5,6 +5,7 @@ import Script from 'next/script';
 import { MetamaskProvider } from '../hooks/useMetamask';
 import { GithubRepoProvider } from '../hooks/useGithubRepo';
 import '../styles/globals.css';
+import { ClaimProvider } from '../hooks/useClaim';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
