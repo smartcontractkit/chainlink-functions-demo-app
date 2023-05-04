@@ -1,17 +1,14 @@
 import { Fragment } from 'react';
-import Link from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
 import CFUser from './CFUser';
 import { useMetamask } from 'hooks/useMetamask';
-import { useSession } from 'next-auth/react';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function UserProfileDropDown() {
-  const { dispatch, state } = useMetamask();
-  const { data: session, status } = useSession();
+  const { dispatch } = useMetamask();
 
   const handleDisconnect = () => {
     dispatch({ type: 'disconnect' });

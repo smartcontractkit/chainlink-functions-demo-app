@@ -1,4 +1,3 @@
-import { useSession, signIn } from 'next-auth/react';
 import Image from 'next/image';
 import { Disclosure, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -15,11 +14,10 @@ interface Props {
 }
 export default function Navbar({ isOpenM }: Props) {
   // NextAuth Session Data
-  const { data: session, status } = useSession();
 
   const {
     dispatch,
-    state: { status: metaStatus, isMetamaskInstalled, wallet, balance },
+    state: { status: metaStatus, isMetamaskInstalled, balance },
   } = useMetamask();
   const listen = useListen();
 

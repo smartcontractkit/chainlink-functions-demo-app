@@ -1,0 +1,13 @@
+@tailwind utilities;
+
+.wrapper {
+  @apply flex items-center flex-nowrap gap-2;
+}
+
+.tip {
+  @apply absolute top-3 rounded-md px-4 py-2 w-[260px] bg-gray-600 text-gray-100 before:absolute before:content-[''] before:w-4 before:h-4 before:rotate-45 before:p-0 before:left-[20%] before:bg-gray-600 before:-top-4 before:z-[-1];
+}
+
+.tip::before {
+  @apply absolute w-8 h-8 rotate-45 left-[20%];
+}

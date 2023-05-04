@@ -22,14 +22,18 @@ const CFInput = ({ type, iconType, placeholder, onInput, base }: Props) => {
     'border-white-alpha-300': !error && !onFocus,
   });
 
-  const handleBlur = useCallback(() => {
-    if (typeof value === 'string') {
-      setError(value.trim().length === 0 ? true : false);
-    } else {
-      setError(value === 0 ? true : false);
-    }
-    setOnFocus(false);
-  }, [value]);
+  const handleBlur = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const str = e.target.value.trim();
+      if (typeof value === 'string' || typeof str === 'string') {
+        setError(str.length === 0 ? true : false);
+      } else {
+        setError(str === 0 ? true : false);
+      }
+      setOnFocus(false);
+    },
+    [value]
+  );
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const str = e.target.value.trim();

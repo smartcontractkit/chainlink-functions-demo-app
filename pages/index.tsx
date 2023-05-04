@@ -1,5 +1,5 @@
 import { useEffect, Fragment, useState } from 'react';
-import { getSession, useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
 import { useMetamask } from '../hooks/useMetamask';
@@ -17,7 +17,6 @@ export default function IndexPage({ user }: IndexPageProps) {
   const { dispatch, state } = useMetamask();
   const [isOpenM, setIsOpenM] = useState(false);
   const listen = useListen();
-  const { data: session, status } = useSession();
 
   useEffect(() => {
     if (typeof window !== undefined) {

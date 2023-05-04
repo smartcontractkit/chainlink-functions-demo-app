@@ -1,0 +1,5 @@
+@tailwind utilities;
+
+.wrapper {
+  @apply w-9 h-9 transition-colors duration-1000 delay-300 ease-in-out rounded-full flex justify-center items-center font-semibold border-2;
+}

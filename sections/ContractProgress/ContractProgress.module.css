@@ -1,0 +1,41 @@
+@tailwind utilities;
+
+.wrapper {
+  @apply bg-white-alpha-50 border border-white-alpha-300 rounded-md p-6;
+}
+
+.heading {
+  @apply text-white text-xl font-semibold mb-6 text-center;
+}
+
+.steps {
+  @apply flex justify-between;
+}
+
+.step {
+  @apply relative flex flex-col justify-center items-center gap-2;
+}
+
+.step_label {
+  @apply text-xs text-center w-20 h-8;
+}
+
+.active_label {
+  @apply text-blue-100;
+}
+
+.separator {
+  @apply absolute top-4 left-14 z-[-1] h-1 w-[72px] bg-gray-600;
+}
+
+.active_separator {
+  transition-property: width;
+  @apply absolute top-0 left-0 z-[-1] h-1 w-0 duration-1000 delay-300 ease-in-out bg-blue-100;
+}
+.active_separator_done {
+  @apply w-[100%];
+}
+
+.progress_tip {
+  @apply mt-6 text-gray-300 text-center text-sm;
+}
