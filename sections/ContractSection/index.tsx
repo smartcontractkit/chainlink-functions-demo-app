@@ -12,10 +12,11 @@ import { ethers } from 'ethers';
 import GHABI from '../../build/artifacts/contracts/GitHubFunctions.sol/GitHubFunctions.json';
 import BillingRegistryContract from '../../build/artifacts/contracts/dev/functions/FunctionsBillingRegistry.sol/FunctionsBillingRegistry.json';
 import LinkTokenContract from '../../build/artifacts/@chainlink/contracts/src/v0.4/LinkToken.sol/LinkToken.json';
+import { networkConfig } from '../../network-config';
 import ContractProgress, { type IProgress } from 'sections/ContractProgress';
 
-const registryAddress = '0xEe9Bf52E5Ea228404bB54BCFbbDa8c21131b9039'; // Hardcoded Mumbai registry
-const linkTokenAddress = '0x326C977E6efc84E512bB9C30f76E30c160eD06FB';
+const registryAddress = networkConfig.mumbai.functionsBillingRegistryProxy;
+const linkTokenAddress = networkConfig.mumbai.linkToken;
 
 const ContractSection = () => {
   const [calculatedAmount, setCalculatedAmount] = useState('');
@@ -44,7 +45,7 @@ const ContractSection = () => {
       signer
     );
     const GHContract = new ethers.Contract(
-      '0xEEE5Ca591CED3f8547AA0413bF2d9E91a379cc5B',
+      process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || '',
       GHABI.abi,
       signer
     );
@@ -110,7 +111,7 @@ const ContractSection = () => {
           params: [
             {
               from: metamaskState.wallet,
-              to: '0x35Ad5b0aDFa55e39873a65Adc66129e76C272E8C', // Hardcoded escrow wallet
+              to: process.env.NEXT_PUBLIC_ESCROW_ADDRESS,
               value: calculatedAmount,
             },
           ],

@@ -9,20 +9,23 @@ const ClaimContext = React.createContext<
 >(undefined);
 
 function ClaimProvider({ children }: PropsWithChildren) {
-  const [isClaiming, setIsClaiming] = useState<boolean>(false);
+  const [hasClaimed, setHasClaimed] = useState<boolean>(false);
   const [amount, setAmount] = useState<number | undefined>();
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const { state } = useMetamask();
+  let isClaiming = false;
 
   const claim = () => {
     if (
       searchParams.get('claim') === 'continue' &&
       state.wallet != null &&
-      !isClaiming
+      !isClaiming &&
+      !hasClaimed
     ) {
-      setIsClaiming(true);
+      isClaiming = true;
+      setHasClaimed(true);
       (async () => {
         const res = await fetch('/api/claim', {
           method: 'POST',
@@ -48,7 +51,7 @@ function ClaimProvider({ children }: PropsWithChildren) {
   };
 
   return (
-    <ClaimContext.Provider value={{ isClaiming, claim, amount }}>
+    <ClaimContext.Provider value={{ isClaiming: hasClaimed, claim, amount }}>
       {children}
     </ClaimContext.Provider>
   );

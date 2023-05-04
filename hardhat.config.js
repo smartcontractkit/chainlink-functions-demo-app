@@ -6,7 +6,7 @@ require('@typechain/ethers-v5');
 
 require('./tasks');
 
-require('dotenv').config({ path: './.env.local' });
+require('dotenv').config();
 
 const config = {
   solidity: {
