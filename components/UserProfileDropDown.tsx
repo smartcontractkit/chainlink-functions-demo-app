@@ -1,14 +1,14 @@
 import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import CFUser from './CFUser';
-import { useMetamask } from 'hooks/useMetamask';
+import { useMetaMask } from '../hooks/useMetaMask';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function UserProfileDropDown() {
-  const { dispatch } = useMetamask();
+  const { dispatch } = useMetaMask();
 
   const handleDisconnect = () => {
     dispatch({ type: 'disconnect' });

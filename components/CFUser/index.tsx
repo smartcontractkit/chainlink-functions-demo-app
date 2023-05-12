@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import styles from './CFUser.module.css';
-import { useMetamask } from 'hooks/useMetamask';
+import { useMetaMask } from '../../hooks/useMetaMask';
 import { useSession } from 'next-auth/react';
 
 const CFUser = () => {
   const {
     state: { wallet, balance },
-  } = useMetamask();
+  } = useMetaMask();
   const { data: session } = useSession();
   const slicedWallet = wallet?.slice(0, 6) + '...' + wallet?.slice(-4);
   const calcBalance = (parseInt(balance || '') / 1000000000000000000).toFixed(

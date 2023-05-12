@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getSession } from 'next-auth/react';
 import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
-import { useMetamask } from '../hooks/useMetamask';
+import { useMetaMask } from '../hooks/useMetaMask';
 import { GetServerSidePropsContext } from 'next/types';
 import CFOpenSourceMaintainer from '@components/CFOpenSourceMaintainer';
 import { Transition } from '@headlessui/react';
@@ -10,7 +10,7 @@ import ContractSection from 'sections/ContractSection';
 import About from 'sections/About';
 
 export default function IndexPage() {
-  const { dispatch, state } = useMetamask();
+  const { dispatch, state } = useMetaMask();
   const [isOpenM, setIsOpenM] = useState(false);
   const listen = useListen();
 
@@ -20,12 +20,12 @@ export default function IndexPage() {
       setIsOpenM(openM);
       // start by checking if window.ethereum is present, indicating a wallet extension
       const ethereumProviderInjected = typeof window.ethereum !== 'undefined';
-      // this could be other wallets, so we can verify if we are dealing with metamask
+      // this could be other wallets, so we can verify if we are dealing with MetaMask
       // using the boolean constructor to be explicit and not let this be used as a falsy value (optional)
-      const isMetamaskInstalled =
+      const isMetaMaskInstalled =
         ethereumProviderInjected && Boolean(window.ethereum.isMetaMask);
 
-      const local = window.localStorage.getItem('metamaskState');
+      const local = window.localStorage.getItem('MetaMaskState');
 
       // user was previously connected, start listening to MM
       if (local) {
@@ -38,7 +38,12 @@ export default function IndexPage() {
         : // backup if local storage is empty
           { wallet: null, balance: null };
 
-      dispatch({ type: 'pageLoaded', isMetamaskInstalled, wallet, balance });
+      dispatch({
+        type: 'pageLoaded',
+        isMetaMaskInstalled: isMetaMaskInstalled,
+        wallet,
+        balance,
+      });
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

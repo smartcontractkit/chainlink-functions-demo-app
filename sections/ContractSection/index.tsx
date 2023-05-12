@@ -4,7 +4,7 @@ import { breakdown, contractOptions } from './data';
 import CFInput from '@components/CFInput';
 import CFDropDown from '@components/CFDropDown';
 import CFButton from '@components/CFButton';
-import { useMetamask } from '../../hooks/useMetamask';
+import { useMetaMask } from '../../hooks/useMetaMask';
 import { useState } from 'react';
 import unit from 'ethjs-unit';
 import CFContractNotification from '@components/CFContractNotification';
@@ -20,7 +20,7 @@ const linkTokenAddress = networkConfig.mumbai.linkToken;
 
 const ContractSection = () => {
   const [calculatedAmount, setCalculatedAmount] = useState('');
-  const { state: metamaskState } = useMetamask();
+  const { state: metaMaskState } = useMetaMask();
   const [matic, setMatic] = useState(0);
   const [stars, setStars] = useState(0);
   const [progress, setProgress] = useState<IProgress>(1);
@@ -110,7 +110,7 @@ const ContractSection = () => {
           method: 'eth_sendTransaction',
           params: [
             {
-              from: metamaskState.wallet,
+              from: metaMaskState.wallet,
               to: process.env.NEXT_PUBLIC_ESCROW_ADDRESS,
               value: calculatedAmount,
             },
@@ -208,7 +208,7 @@ const ContractSection = () => {
                           stars > 0 &&
                           repo &&
                           state === 'uninitialized' &&
-                          metamaskState.wallet
+                          metaMaskState.wallet
                         )
                       }
                     />

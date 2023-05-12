@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/router';
-import { useMetamask } from './useMetamask';
+import { useMetaMask } from './useMetaMask';
 
 const ClaimContext = React.createContext<
   | { isClaiming: boolean; claim: () => void; amount: number | undefined }
@@ -14,7 +14,7 @@ function ClaimProvider({ children }: PropsWithChildren) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const { state } = useMetamask();
+  const { state } = useMetaMask();
   let isClaiming = false;
 
   const claim = () => {

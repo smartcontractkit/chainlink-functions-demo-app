@@ -6,7 +6,7 @@ import UserProfileDropDown from './UserProfileDropDown';
 import CFButton from './CFButton';
 import CFOpenSourceMaintainer from './CFOpenSourceMaintainer';
 import { useListen } from 'hooks/useListen';
-import { useMetamask } from 'hooks/useMetamask';
+import { useMetaMask } from '../hooks/useMetaMask';
 import Link from 'next/link';
 
 interface Props {
@@ -15,12 +15,12 @@ interface Props {
 export default function Navbar({ isOpenM }: Props) {
   const {
     dispatch,
-    state: { status: metaStatus, isMetamaskInstalled, balance },
-  } = useMetamask();
+    state: { status: metaStatus, isMetaMaskInstalled, balance },
+  } = useMetaMask();
   const listen = useListen();
 
-  const showInstallMetamask =
-    metaStatus !== 'pageNotLoaded' && !isMetamaskInstalled;
+  const showInstallMetaMask =
+    metaStatus !== 'pageNotLoaded' && !isMetaMaskInstalled;
 
   const handleConnect = async () => {
     dispatch({ type: 'loading' });
@@ -85,13 +85,13 @@ export default function Navbar({ isOpenM }: Props) {
                   <UserProfileDropDown />
                 ) : (
                   <>
-                    {showInstallMetamask ? (
+                    {showInstallMetaMask ? (
                       <Link
                         href="https://metamask.io/"
                         target="_blank"
                         className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-ganache text-white px-5 py-3 text-base font-medium  sm:w-auto"
                       >
-                        Install Metamask
+                        Install MetaMask
                       </Link>
                     ) : (
                       <CFButton

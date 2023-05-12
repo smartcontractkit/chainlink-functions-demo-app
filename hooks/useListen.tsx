@@ -1,7 +1,7 @@
-import { useMetamask } from './useMetamask';
+import { useMetaMask } from './useMetaMask';
 
 export const useListen = () => {
-  const { dispatch } = useMetamask();
+  const { dispatch } = useMetaMask();
 
   return () => {
     window.ethereum.on('accountsChanged', async (newAccounts: string[]) => {

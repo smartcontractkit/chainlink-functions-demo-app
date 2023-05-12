@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { getProviders, signIn } from 'next-auth/react';
 
 import styles from './CFOpenSourceMaintainer.module.css';
-import { useMetamask } from '../../hooks/useMetamask';
+import { useMetaMask } from '../../hooks/useMetaMask';
 import { useClaim } from '../../hooks/useClaim';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const CFOpenSourceMaintainer = ({ isNav, closeAlert }: Props) => {
-  const { state } = useMetamask();
+  const { state } = useMetaMask();
   const { claim, amount, isClaiming } = useClaim();
 
   const containerClasses = classNames(styles.container, {
