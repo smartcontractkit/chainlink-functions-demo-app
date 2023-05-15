@@ -27,11 +27,11 @@ export const forDevs = [
     link: `${process.env.NEXT_GITHUB_URL}/blob/main/README.md`,
   },
   {
-    text: 'Solana Chainlink Docs',
-    link: 'https://docs.chain.link/docs/solana/data-feeds-solana/',
+    text: 'Chainlink Functions Docs',
+    link: 'https://docs.chain.link/chainlink-functions',
   },
   {
-    text: 'Solana Web3.js Javascript API',
-    link: 'https://docs.solana.com/developing/clients/javascript-api',
+    text: 'Next JS docs',
+    link: 'https://nextjs.org/',
   },
 ];

@@ -139,11 +139,13 @@ const ContractSection = () => {
       <div className={styles.content_wrapper}>
         <div>
           <h1 className={styles.info_heading}>
-            Spin up your GitHub account with a Chainlink
+            Sponsor your favorite GitHub creators with Chainlink Functions
           </h1>
           <p className={styles.info_description}>
-            Participating in open source projects on GitHub can help you gain
-            visibility and recognition in the developer community.
+            Contribute to GitHub creators who meet the goals you define.
+            <br/>
+            <br/>
+            Define a threshold goal for the creator to reach and execute a one-time donation based on your criteria.
           </p>
           <div className={styles.info_breakdown}>
             {breakdown.map(({ icon, text }, breakdownIndex) => (
@@ -174,7 +176,7 @@ const ContractSection = () => {
                       type="url"
                       iconType="link"
                       placeholder="Enter GitHub repo URL"
-                      base={`https://github.com/${repo || ''}`}
+                      base={`${repo || ''}`}
                       onInput={(value) => setRepo(value.slice(19))}
                     />
                   </div>
@@ -185,7 +187,7 @@ const ContractSection = () => {
                     />
                     <CFInput
                       type="text"
-                      placeholder="Enter number"
+                      placeholder="Enter number of stars"
                       onInput={(value) => setStars(+value)}
                     />
                   </div>
@@ -193,7 +195,7 @@ const ContractSection = () => {
                     <CFInput
                       type="text"
                       iconType="matic"
-                      placeholder="Enter number of MATIC"
+                      placeholder="Enter Matic amount contribution (ex: 0.0001)"
                       onInput={(value) => setMatic(+value)}
                     />
                   </div>

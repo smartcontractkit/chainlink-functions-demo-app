@@ -52,4 +52,4 @@ docker compose down --remove-orphans --volumes
 - `contracts/` - Contains the GitHub calculator contract which uses Chainlink Functions to calculate the total amount owed. It also contains helper code provided by Chainlink.
 - `Functions-GitHub-calculation.js` - This is the actual code that runs on Chainlink Functions.
 - `components`/`hooks`/`lib`/`pages`/`public`/`sections`/`styles` - Are all part of the Next.JS application.
-- `tasks` - Contains the Hardhat task to deploy a new version of the Calculator contract.
+- `tasks` - Contains the Hardhat tasks to deploy a new version of the Calculator contract.

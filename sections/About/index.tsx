@@ -13,8 +13,8 @@ const About = () => {
         <div className={styles.content}>
           <h4 className={styles.title}>Purpose</h4>
           <p>
-            Participating in open source projects on GitHub can help you gain
-            visibility and recognition in the developer community.
+            This dapp will show you how to use Chainlink Functions to bring web2 data on-chain
+            and use this data in your smart contracts.
           </p>
         </div>
         <div className={styles.content}>
@@ -36,12 +36,12 @@ const About = () => {
               </div>
             </li>
             <li className={styles.list}>
-              2. Copy the GitHub repository and fill in the fields
+              2. Enter the repo URL for the creator you want to sponsor
             </li>
-            <li className={styles.list}>3. Create a contract and pay for it</li>
+            <li className={styles.list}>3. Define the metric by which you will donate (Stars or Forks)</li>
+            <li className={styles.list}>4. Enter the threshold number</li>
             <li className={styles.list}>
-              4. Watch your popularity grow on GitHub or claim your donations
-              for the open source maintainer?{' '}
+              5. Enter the amount of MATIC to donate based on your defined threadhold
             </li>
           </ol>
         </div>
@@ -49,9 +49,9 @@ const About = () => {
           <h4 className={styles.title}>For Developers</h4>
 
           <p>
-            This dApp is built on top of Solana and Chainlink. It enables users
-            to interact with real-time markets using trustless solutions. Learn
-            how to build a full-stack dApp with Solana and Chainlink.
+            This dApp is built using Chainlink Functions. It enables developers
+            to use web2 data in web3 smart contracts. Learn
+            how to build a full-stack dApp with Chainlink Functions.
           </p>
 
           <Link

@@ -1,11 +1,11 @@
 export const breakdown = [
   {
     icon: 'add-user',
-    text: 'Increase the reach of your audience',
+    text: 'Support GitHub creators',
   },
   {
     icon: 'star',
-    text: 'Increase the popularity of your repo',
+    text: 'Donate Matic based on repo popularity',
   },
   {
     icon: 'shield',
