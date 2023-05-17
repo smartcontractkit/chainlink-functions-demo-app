@@ -1,0 +1,17 @@
+@tailwind utilities;
+
+.container {
+  @apply bg-white-alpha-50 backdrop-blur-[10px] rounded-md p-5 px-0 lg:px-5 py-10 my-10 grid grid-cols-2 gap-x-52;
+}
+
+.info_heading {
+  @apply text-white font-semibold text-heading-xl md:text-[40px] leading-[120%] lg:pr-16;
+}
+
+.info_description {
+  @apply text-gray-300 font-normal text-base mt-5 mb-10 lg:pr-14;
+}
+
+.inputs {
+  @apply grid gap-4 grid-cols-1 lg:pl-14;
+}

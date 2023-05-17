@@ -9,7 +9,7 @@
 }
 
 .steps {
-  @apply flex justify-between;
+  @apply flex justify-center gap-[25px];
 }
 
 .step {

@@ -2,20 +2,21 @@ import { CheckIcon } from '@heroicons/react/24/outline';
 import styles from './CFContractNotification.module.css';
 import classNames from 'classnames';
 import Image from 'next/image';
-import { content_state } from './data';
 import CFButton from '@components/CFButton';
 
+type Status = 'success' | 'fail';
 interface Props {
-  status: 'success' | 'fail';
+  status: Status;
   onClear: () => void;
+  content: Record<Status, { message: string; btnText: string }>;
 }
 
-const CFContractNotification = ({ status, onClear }: Props) => {
+const CFContractNotification = ({ status, onClear, content }: Props) => {
   const circleClasses = classNames(styles.circle, {
     'bg-green-300': status === 'success',
     'bg-red-300': status === 'fail',
   });
-  const data = content_state[status];
+  const data = content[status];
 
   return (
     <div className={styles.card}>

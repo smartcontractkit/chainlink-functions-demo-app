@@ -4,7 +4,7 @@
 const fs = require('fs/promises');
 const path = require('node:path');
 
-const { networkConfig } = require('../network-config');
+const { networs } = require('../networks');
 
 task(
   'deploy-calculator',
@@ -12,7 +12,7 @@ task(
 ).setAction(async () => {
   try {
     const source = await fs.readFile(
-      path.join(__dirname, '../Functions-GitHub-calculation.js'),
+      path.join(__dirname, '../functions/github-metric-times-ether.js'),
       { encoding: 'utf8' }
     );
     console.log(source);
@@ -20,7 +20,7 @@ task(
     /** @var {FunctionsConsumer} contract  */
     const factory = await ethers.getContractFactory('GitHubFunctions');
     const contract = await factory.deploy(
-      networkConfig.mumbai.functionsOracleProxy,
+      networks[network.name].functionsOracleProxy,
       source
     );
     await contract.deployTransaction.wait(1);

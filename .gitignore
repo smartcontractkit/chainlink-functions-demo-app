@@ -40,3 +40,13 @@ next-env.d.ts
 artifacts
 cache/
 typechain-types/
+
+# Chainlink Functions beta
+FunctionsSandboxLibrary/
+tasks/Functions-billing/
+tasks/Functions-client/
+tasks/utils/
+tasks/accounts.js
+tasks/balance.js
+tasks/block-number.js
+.openzeppelin/

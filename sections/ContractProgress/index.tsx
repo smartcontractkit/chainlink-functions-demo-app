@@ -1,16 +1,31 @@
 import cn from 'classnames';
 import CFNumberIndicator from '@components/CFNumberIndicator';
 import styles from './ContractProgress.module.css';
-import { steps } from './data';
-import { indicator_status } from 'data/indicator-data';
 
-export type IProgress = 1 | 2 | 3 | 4 | 5 | 6;
+export interface IStep {
+  count: number;
+  label: string;
+  tip: string;
+}
 interface IContractProgress {
-  progress: IProgress;
-  amount: string;
+  progress: number;
+  textData?: Record<string, string>;
+  steps: readonly IStep[];
+  heading: string;
 }
 
-const ContractProgress = ({ progress, amount }: IContractProgress) => {
+const indicator_status = {
+  done: 'done',
+  in_progress: 'in progress',
+  pending: 'pending',
+} as const;
+
+const ContractProgress = ({
+  progress,
+  textData = {},
+  steps,
+  heading,
+}: IContractProgress) => {
   const getStatus = (value: number) => {
     return progress === value
       ? indicator_status.in_progress
@@ -21,7 +36,7 @@ const ContractProgress = ({ progress, amount }: IContractProgress) => {
 
   return (
     <div className={styles.wrapper}>
-      <h3 className={styles.heading}>Your payment is being processed</h3>
+      <h3 className={styles.heading}>{heading}</h3>
       <div className={styles.steps}>
         {steps.map((step) => (
           <div className={styles.step} key={step.count}>
@@ -37,7 +52,7 @@ const ContractProgress = ({ progress, amount }: IContractProgress) => {
             >
               {step.label}
             </span>
-            {step.count !== 5 && (
+            {step.count !== steps.at(-1)?.count && (
               <div className={cn(styles.separator)}>
                 <div
                   className={cn(styles.active_separator, {
@@ -51,7 +66,11 @@ const ContractProgress = ({ progress, amount }: IContractProgress) => {
         ))}
       </div>
       <div className={styles.progress_tip}>
-        {steps[progress - 1]?.tip.replace('{AMOUNT}', amount)}
+        {Object.keys(textData).reduce(
+          (result, key) =>
+            result.replace(`{${key.toUpperCase()}}`, textData[key]),
+          steps[progress - 1]?.tip
+        )}
       </div>
     </div>
   );

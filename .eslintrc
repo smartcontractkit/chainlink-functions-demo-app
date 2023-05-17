@@ -21,7 +21,7 @@
   "overrides": [
     {
       "files": [
-        "Functions-*.js"
+        "functions/*.js"
       ],
       "parserOptions": {
         "ecmaFeatures": {

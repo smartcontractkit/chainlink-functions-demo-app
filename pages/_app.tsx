@@ -1,11 +1,8 @@
-import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 
 import { MetaMaskProvider } from '../hooks/useMetaMask';
-import { GithubRepoProvider } from '../hooks/useGithubRepo';
 import '../styles/globals.css';
-import { ClaimProvider } from '../hooks/useClaim';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -25,13 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         `}
       </Script>
       <MetaMaskProvider>
-        <ClaimProvider>
-          <GithubRepoProvider>
-            <SessionProvider session={pageProps.session} refetchInterval={0}>
-              <Component {...pageProps} />
-            </SessionProvider>
-          </GithubRepoProvider>
-        </ClaimProvider>
+        <Component {...pageProps} />
       </MetaMaskProvider>
     </>
   );

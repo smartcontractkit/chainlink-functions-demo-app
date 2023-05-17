@@ -1,18 +1,14 @@
 import Image from 'next/image';
-import { Disclosure, Transition } from '@headlessui/react';
+import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 import UserProfileDropDown from './UserProfileDropDown';
 import CFButton from './CFButton';
-import CFOpenSourceMaintainer from './CFOpenSourceMaintainer';
 import { useListen } from 'hooks/useListen';
 import { useMetaMask } from '../hooks/useMetaMask';
 import Link from 'next/link';
 
-interface Props {
-  isOpenM: boolean;
-}
-export default function Navbar({ isOpenM }: Props) {
+export default function Navbar() {
   const {
     dispatch,
     state: { status: metaStatus, isMetaMaskInstalled, balance },
@@ -69,18 +65,6 @@ export default function Navbar({ isOpenM }: Props) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
-                {/* Profile dropdown */}
-                <Transition
-                  show={isOpenM}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 translate-y-full"
-                  enterTo="transform opacity-100 translate-y-0"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 translate-y-0"
-                  leaveTo="transform opacity-0 translate-y-full"
-                >
-                  {balance && <CFOpenSourceMaintainer isNav={true} />}
-                </Transition>
                 {balance ? (
                   <UserProfileDropDown />
                 ) : (

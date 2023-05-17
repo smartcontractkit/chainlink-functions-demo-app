@@ -1,23 +1,17 @@
-import { useEffect, useState } from 'react';
-import { getSession } from 'next-auth/react';
+import { useEffect } from 'react';
 import Navbar from '@components/Navbar';
 import { useListen } from '../hooks/useListen';
 import { useMetaMask } from '../hooks/useMetaMask';
-import { GetServerSidePropsContext } from 'next/types';
-import CFOpenSourceMaintainer from '@components/CFOpenSourceMaintainer';
-import { Transition } from '@headlessui/react';
 import ContractSection from 'sections/ContractSection';
+import ClaimSection from 'sections/ClaimSection';
 import About from 'sections/About';
 
 export default function IndexPage() {
-  const { dispatch, state } = useMetaMask();
-  const [isOpenM, setIsOpenM] = useState(false);
+  const { dispatch } = useMetaMask();
   const listen = useListen();
 
   useEffect(() => {
     if (typeof window !== undefined) {
-      const openM = Boolean(window.sessionStorage.getItem('openM'));
-      setIsOpenM(openM);
       // start by checking if window.ethereum is present, indicating a wallet extension
       const ethereumProviderInjected = typeof window.ethereum !== 'undefined';
       // this could be other wallets, so we can verify if we are dealing with MetaMask
@@ -51,34 +45,14 @@ export default function IndexPage() {
 
   return (
     <>
-      <Navbar isOpenM={isOpenM} />
+      <Navbar />
       <div className="w-full max-w-[1440px] px-4 lg:px-8 pt-4 mx-auto">
-        <Transition
-          show={!isOpenM}
-          enter="transition ease-out duration-75"
-          enterFrom="transform opacity-0 -translate-y-full"
-          enterTo="transform opacity-100 translate-y-0"
-          leave="transition ease-in duration-100"
-          leaveFrom="transform opacity-100 translate-y-0"
-          leaveTo="transform opacity-0 -translate-y-full"
-        >
-          {state.balance && (
-            <CFOpenSourceMaintainer closeAlert={() => setIsOpenM(true)} />
-          )}
-        </Transition>
         <ContractSection />
+        <ClaimSection />
         <About />
       </div>
       <div className="gradients green_gradient"></div>
       <div className="gradients blue_gradient"></div>
     </>
   );
-}
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getSession(context);
-
-  return {
-    props: { user: session?.user ?? null },
-  };
 }
