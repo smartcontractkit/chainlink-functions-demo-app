@@ -18,7 +18,10 @@ const ContractSection = () => {
   const [calculatedAmount, setCalculatedAmount] = useState('');
   const { state: metaMaskState } = useMetaMask();
   const [matic, setMatic] = useState(0);
-  const [stars, setStars] = useState(0);
+  const [metric, setMetric] = useState(0);
+  const [metricType, setMetricType] = useState<
+    (typeof contractOptions)[number]
+  >(contractOptions[0]);
   type Progress = (typeof steps)[number]['count'];
   const [progress, setProgress] = useState<Progress>(1);
   const [repo, setRepo] = useState<string | undefined>(undefined);
@@ -42,8 +45,8 @@ const ContractSection = () => {
         // Step 1: Have Chainlink Functions calculate the amount of Ether to donate
         const calculationTx = await ledger.multiplyMetricWithEther(
           `https://github.com/${repo}`,
-          'stars',
-          `${stars}`,
+          metricType.name.toLowerCase(),
+          `${metric}`,
           ethers.utils.parseUnits(matic.toString(), 'ether').toString(),
           process.env.NEXT_PUBLIC_SUBSCRIPTION_ID,
           {
@@ -150,12 +153,13 @@ const ContractSection = () => {
                   <div className={styles.option_count}>
                     <CFDropDown
                       options={contractOptions}
-                      defaultValue={contractOptions[0]}
+                      defaultValue={metricType}
+                      onChange={(value) => setMetricType(value)}
                     />
                     <CFInput
                       type="text"
-                      placeholder="Enter number of stars"
-                      onInput={(value) => setStars(+value)}
+                      placeholder={`Enter number of ${metricType.name.toLowerCase()}`}
+                      onInput={(value) => setMetric(+value)}
                     />
                   </div>
                   <div>
@@ -174,7 +178,7 @@ const ContractSection = () => {
                       disabled={
                         !(
                           matic > 0 &&
-                          stars > 0 &&
+                          metric > 0 &&
                           repo &&
                           state === 'uninitialized' &&
                           metaMaskState.wallet

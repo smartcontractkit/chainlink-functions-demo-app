@@ -15,7 +15,7 @@ export const breakdown = [
   },
 ];
 
-export const contractOptions = [{ name: 'Stars' }];
+export const contractOptions = [{ name: 'Stars' }, { name: 'Forks' }];
 
 export const steps = [
   {
