@@ -114,13 +114,16 @@ const ClaimSection = () => {
       </main>
       <aside>
         <h2 className={styles.info_heading}>
-          Are you an open source maintainer?
+          Open source maintainer? Claim your donations!
         </h2>
         <p className={styles.info_description}>
           There might be funds waiting for you! Create a gist containing your
           wallet address and paste the link to that file here. We&apos;ll check
           if there have been donations to your repositories and transfer the ETH
           to your wallet.
+          <br />
+          <br />
+          <a href="https://functions.chain.link/"></a>Add your wallet address to the Functions beta preview to access to preview this app.</a>
         </p>
       </aside>
     </article>
