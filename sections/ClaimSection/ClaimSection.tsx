@@ -121,9 +121,9 @@ const ClaimSection = () => {
           wallet address and paste the link to that file here. We&apos;ll check
           if there have been donations to your repositories and transfer the ETH
           to your wallet.
-          <br />
-          <br />
-          <a href="https://functions.chain.link/"></a>Add your wallet address to the Functions beta preview to access to preview this app.</a>
+            <br />
+            <br />
+            <a href="https://functions.chain.link/">Add your wallet address to the Functions beta preview to use to preview this app.</a>
         </p>
       </aside>
     </article>
