@@ -1,23 +1,8 @@
 export const wallets = [
   {
-    name: 'phantom',
+    name: 'metamask',
     extension: '.svg',
-    link: 'https://phantom.app',
-  },
-  {
-    name: 'solfare',
-    extension: '.svg',
-    link: 'https://solflare.com',
-  },
-  {
-    name: 'glow',
-    extension: '.svg',
-    link: 'https://glow.app/',
-  },
-  {
-    name: 'slope',
-    extension: '.svg',
-    link: 'https://slope.finance/',
+    link: 'https://metamask.io/',
   },
 ];
 
