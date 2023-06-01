@@ -114,7 +114,8 @@ const ContractSection = () => {
             Define a threshold goal for the creator to reach and execute a
             one-time donation based on your criteria.
             <br />
-            <a href="https://functions.chain.link/">Add your wallet address to the Functions beta preview to use to preview this app.</a>
+            <br />
+            <a href="https://functions.chain.link/">Add your wallet address to the Functions beta preview list to use this app.</a>
           </p>
           <div className={styles.info_breakdown}>
             {breakdown.map(({ icon, text }, breakdownIndex) => (
