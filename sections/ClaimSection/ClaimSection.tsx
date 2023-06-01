@@ -123,7 +123,7 @@ const ClaimSection = () => {
           to your wallet.
             <br />
             <br />
-            <a href="https://functions.chain.link/">Add your wallet address to the Functions beta preview list to use this app.</a>
+            <a className={styles.info_link} href="https://functions.chain.link/">Add your wallet address to the Functions beta preview list to use this app.</a>
         </p>
       </aside>
     </article>
