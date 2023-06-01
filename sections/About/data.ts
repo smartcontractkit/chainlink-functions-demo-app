@@ -4,6 +4,11 @@ export const wallets = [
     extension: '.svg',
     link: 'https://metamask.io/',
   },
+  {
+    name: 'walletconnect',
+    extension: '.svg',
+    link: 'https://walletconnect.com/',
+  },
 ];
 
 export const forDevs = [
