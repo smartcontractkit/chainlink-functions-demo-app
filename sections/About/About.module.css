@@ -33,5 +33,6 @@
 }
 
 .github_wrapper {
-  @apply flex items-center gap-2 text-blue-200 font-semibold text-base;
+  @apply flex items-center gap-2 hover:underline text-blue-200 hover:text-blue-300 visited:text-purple-200 visited:hover:text-purple-300
+font-semibold text-base;
 }
