@@ -2,9 +2,12 @@ import type { AppProps } from 'next/app';
 import Script from 'next/script';
 
 import { MetaMaskProvider } from '../hooks/useMetaMask';
+import useGoogleTagManager from '../hooks/useGoogleTagManager';
 import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
+  useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING);
+
   return (
     <>
       <Script
