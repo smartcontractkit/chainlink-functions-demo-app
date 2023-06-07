@@ -63,7 +63,7 @@ Run these from the project directory where you've cloned this repo.
 
 This dApp consists of two parts: the contracts and the web UI.
 
-Central to the web3 logic is the `Ledger` contract. It is an upgradeable and ownable contract that handles both donations and payouts. In order to verify GitHub metric data and authenticate GitHub users, it uses Chainlink Functions to make off-the-chain API calls. The contract can be used in a stand-alone fashion. The UI is just a simple app that allows users to interface with the contract. There is no required logic or storage in the web2 part.
+Central to the web3 logic is the `Ledger` contract. It is an upgradeable and ownable contract that handles both donations and payouts. In order to verify GitHub metric data and authenticate GitHub users, it uses Chainlink Functions to make off-chain API calls. The contract can be used in a stand-alone fashion. The UI is just a simple app that allows users to interface with the contract. There is no required logic or storage in the web2 part.
 
 ### Overview
 
