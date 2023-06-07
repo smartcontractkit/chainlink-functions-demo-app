@@ -84,6 +84,7 @@ const ClaimSection = () => {
             status={state}
             onClear={() => {
               setState('uninitialized');
+              setGist('');
             }}
             content={content}
           />
@@ -121,9 +122,12 @@ const ClaimSection = () => {
           wallet address and paste the link to that file here. We&apos;ll check
           if there have been donations to your repositories and transfer the ETH
           to your wallet.
-            <br />
-            <br />
-            <a className={styles.info_link} href="https://functions.chain.link/">Add your wallet address to the Functions beta preview list to use this app.</a>
+          <br />
+          <br />
+          <a className={styles.info_link} href="https://functions.chain.link/">
+            Add your wallet address to the Functions beta preview list to use
+            this app.
+          </a>
         </p>
       </aside>
     </article>
