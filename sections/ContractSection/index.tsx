@@ -115,7 +115,13 @@ const ContractSection = () => {
             one-time donation based on your criteria.
             <br />
             <br />
-            <a className={styles.info_link} href="https://functions.chain.link/">Add your wallet address to the Functions beta preview list to use this app.</a>
+            <a
+              className={styles.info_link}
+              href="https://functions.chain.link/"
+            >
+              Add your wallet address to the Functions beta preview list to use
+              this app.
+            </a>
           </p>
           <div className={styles.info_breakdown}>
             {breakdown.map(({ icon, text }, breakdownIndex) => (
@@ -130,6 +136,9 @@ const ContractSection = () => {
               status={state}
               onClear={() => {
                 setState('uninitialized');
+                setMetric(0);
+                setRepo(undefined);
+                setMatic(0);
               }}
               content={content}
             />
