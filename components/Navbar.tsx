@@ -58,7 +58,7 @@ export default function Navbar() {
                   <Image
                     height={40}
                     width={122}
-                    className="h-8 w-full"
+                    className="h-10 w-full"
                     src="./icons/logo.svg"
                     alt="Your Company"
                   />
@@ -73,7 +73,7 @@ export default function Navbar() {
                       <Link
                         href="https://metamask.io/"
                         target="_blank"
-                        className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-ganache text-white px-5 py-3 text-base font-medium  sm:w-auto"
+                        className="w-full items-center justify-center rounded-md text-white px-5 py-3 text-base font-medium sm:w-auto hover:underline"
                       >
                         Install MetaMask
                       </Link>

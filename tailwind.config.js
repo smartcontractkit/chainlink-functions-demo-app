@@ -97,6 +97,8 @@ module.exports = {
         'blue-700': 'rgba(44, 82, 130, 1)',
         'blue-800': 'rgba(42, 67, 101, 1)',
         'blue-900': 'rgba(26, 54, 93, 1)',
+        'purple-200': 'rgba(183, 148, 244, 1)',
+        'purple-300': 'rgba(159, 122, 234, 1)',
       },
       backgroundImage: {
         'green-gradient':
