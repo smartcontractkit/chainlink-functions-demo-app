@@ -1,4 +1,4 @@
-# Chainlink Functions example
+# Chainlink Functions Reference App
 
 This is an example dApp, designed to run on the Mumbai testnet, that utilises [Chainlink Functions](https://docs.chain.link/chainlink-functions/). The functionality allows users to donate MATIC to their favourite GitHub repositories. Authors of those repositories can then claim their donations. Donations are made in an amount of MATIC per amount of Stars the repository has.
 
@@ -89,3 +89,5 @@ Chainlink Functions will then read that wallet address and the gist's owner (i.e
 - `functions/` - These are JavaScript scripts to be run off the chain by Chainlink Functions.
 - `components`/`hooks`/`pages`/`public`/`sections`/`styles` - Are all part of the Next.JS application.
 - `tasks/` - Contains the Hardhat tasks to assist in managing the dApp.
+
+> :warning: **Disclaimer**: The code used in this Chainlink Functions quickstart template comes from Chainlink community members and has not been audited. The Chainlink team disclaims and shall have no liability with respect to any loss, malfunction, or any other result of deploying a Quickstart Template. By electing to deploy a Quickstart Template you hereby acknowledge and agree to the above.
