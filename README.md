@@ -86,7 +86,7 @@ Chainlink Functions will then read that wallet address and the gist's owner (i.e
 ### Folder Structure
 
 - `contracts/` - Contains the GitHub calculator contract, which uses Chainlink Functions to calculate the total amount owed. It also contains the helper code provided by Chainlink.
-- `functions/` - These are JavaScript scripts to be run off the chain by Chainlink Functions.
+- `functions/` - These are JavaScript scripts which run off-chain through Chainlink Functions.
 - `components`/`hooks`/`pages`/`public`/`sections`/`styles` - Are all part of the Next.JS application.
 - `tasks/` - Contains the Hardhat tasks to assist in managing the dApp.
 
