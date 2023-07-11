@@ -1,6 +1,6 @@
-# Chainlink Functions Reference App
+# Chainlink Functions Demo App
 
-This is an example dApp, designed to run on the Mumbai testnet (Polygon), that utilises [Chainlink Functions](https://docs.chain.link/chainlink-functions/). The functionality allows users to donate MATIC to their favourite GitHub repositories. Authors of those repositories can then claim their donations. Donations are made in an amount of MATIC per amount of Stars the repository has.
+This is an example dApp, designed to run on the Mumbai testnet (Polygon), that uses [Chainlink Functions](https://docs.chain.link/chainlink-functions/). The functionality allows users to donate MATIC to their favorite GitHub creators. Authors of those repositories can then claim their donations. Donations are made in an amount of MATIC per amount of Stars the repository has.
 
 Chainlink Functions is used to determine the total donation amount by multiplying the MATIC amount by the star count. There's no back-end involved in the whole donation process.
 
