@@ -13,7 +13,7 @@ const About = () => {
         <div className={styles.content}>
           <h4 className={styles.title}>Purpose</h4>
           <p>
-            This dapp will show you how to use Chainlink Functions to bring web2 data on-chain
+            This dApp will show you how to use Chainlink Functions to bring web2 data on-chain
             and use this data in your smart contracts.
           </p>
         </div>
