@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "update-beta": " curl -L -o ../functions.tar.gz https://api.github.com/repos/smartcontractkit/functions-hardhat-starter-kit/tarball/main && tar -xf ../functions.tar.gz --strip=1 --wildcards smartcontractkit-functions-hardhat-starter-kit-\\*/contracts/dev smartcontractkit-functions-hardhat-starter-kit-\\*/contracts/test smartcontractkit-functions-hardhat-starter-kit-\\*/FunctionsSandboxLibrary smartcontractkit-functions-hardhat-starter-kit-\\*/tasks&& rm -f ../functions.tar.gz"
+    "update-beta": " curl -L -o ../functions.tar.gz https://api.github.com/repos/smartcontractkit/functions-hardhat-starter-kit/tarball/bb6d7ca470768e2ba0efd20d15ddd752629ac93e && tar -xf ../functions.tar.gz --strip=1 --wildcards smartcontractkit-functions-hardhat-starter-kit-\\*/contracts/dev smartcontractkit-functions-hardhat-starter-kit-\\*/contracts/test smartcontractkit-functions-hardhat-starter-kit-\\*/FunctionsSandboxLibrary smartcontractkit-functions-hardhat-starter-kit-\\*/tasks&& rm -f ../functions.tar.gz"
   },
   "dependencies": {
     "@chainlink/contracts": "^0.6.1",
@@ -31,8 +31,7 @@
     "react-gtm-module": "^2.0.11",
     "readline-promise": "^1.0.5",
     "ts-node": "^10.9.1",
-    "vm2": "^3.9.16",
-    "wagmi": "^0.12.0"
+    "vm2": "^3.9.16"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
