@@ -1,10 +1,8 @@
 export type Network = {
   linkToken: string;
   linkEthPriceFeed: string;
-  functionsOracleProxy: string;
-  functionsBillingRegistryProxy: string;
-  functionsPublicKey: string;
+  functionsRouter: string;
+  donId: string;
 };
 
 export const networks: Record<string, Network>;
-export const SHARED_DON_PUBLIC_KEY: string;

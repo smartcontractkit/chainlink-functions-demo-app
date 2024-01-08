@@ -17,7 +17,7 @@ const calculateScript = fs.readFileSync(calculateScriptPath, {
   encoding: 'utf-8',
 });
 module.exports = [
-  networks.mumbai.functionsOracleProxy,
+  networks.mumbai.functionsRouter,
   // calculateScript,
   // checkScript,
 ];

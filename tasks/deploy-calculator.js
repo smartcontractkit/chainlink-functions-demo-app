@@ -4,7 +4,7 @@
 const fs = require('fs/promises');
 const path = require('node:path');
 
-const { networs } = require('../networks');
+const { networks } = require('../networks');
 
 task(
   'deploy-calculator',
@@ -20,7 +20,8 @@ task(
     /** @var {FunctionsConsumer} contract  */
     const factory = await ethers.getContractFactory('GitHubFunctions');
     const contract = await factory.deploy(
-      networks[network.name].functionsOracleProxy,
+      networks[network.name].functionsRouter,
+      networks[network.name].donId,
       source
     );
     await contract.deployTransaction.wait(1);

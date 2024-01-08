@@ -3,15 +3,15 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "dev": "npm run update-beta && hardhat compile && next dev",
-    "build": "npm run update-beta && hardhat compile && next build",
+    "dev": "hardhat compile && next dev",
+    "build": "hardhat compile && next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
-    "update-beta": " curl -L -o ../functions.tar.gz https://api.github.com/repos/smartcontractkit/functions-hardhat-starter-kit/tarball/main && tar -xf ../functions.tar.gz --strip=1 --wildcards smartcontractkit-functions-hardhat-starter-kit-\\*/contracts/dev smartcontractkit-functions-hardhat-starter-kit-\\*/contracts/test smartcontractkit-functions-hardhat-starter-kit-\\*/FunctionsSandboxLibrary smartcontractkit-functions-hardhat-starter-kit-\\*/tasks&& rm -f ../functions.tar.gz"
+    "test": "jest"
   },
   "dependencies": {
-    "@chainlink/contracts": "^0.6.1",
+    "@chainlink/contracts": "^0.7.1",
+    "@chainlink/functions-toolkit": "^0.2.4",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
     "@openzeppelin/contracts": "^4.8.3",

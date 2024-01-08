@@ -5,7 +5,8 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-import {Functions, FunctionsClient} from "./dev/functions/FunctionsClient.sol";
+import {FunctionsClient} from "@chainlink/contracts/src/v0.8/functions/dev/v1_0_0/FunctionsClient.sol";
+import {FunctionsRequest} from "@chainlink/contracts/src/v0.8/functions/dev/v1_0_0/libraries/FunctionsRequest.sol";
 
 import "./Donation.sol";
 
@@ -13,13 +14,14 @@ import "./Donation.sol";
 /// @notice The contract stores donations that have ETH attached to them and allows users to make new donations as well as to claim these donations.
 /// @dev This contract utilizes Chainlink Functions and serves as a demo application
 contract Ledger is Initializable, UUPSUpgradeable, OwnableUpgradeable, FunctionsClient {
-  using Functions for Functions.Request;
+  using FunctionsRequest for FunctionsRequest.Request;
 
   address[] internal unclaimedDonations;
   mapping(address => Donation) internal donationMap;
   mapping(bytes32 => address) internal runningClaims;
   string internal calculationLogic;
   string internal checkLogic;
+  bytes32 public donId;
 
   event OCRResponse(bytes32 indexed requestId, bytes result, bytes err);
   event Claimed(uint amount, address by);
@@ -27,11 +29,11 @@ contract Ledger is Initializable, UUPSUpgradeable, OwnableUpgradeable, Functions
   constructor(address oracle) FunctionsClient(oracle) {}
 
   /// @notice Allows for constructor arguments and for these to be passed on when upgrading
-  /// @param _oracle Address where the Chainlink Functions oracle lives
+  /// @param _donId DON ID for the Functions DON to which the requests are sent
   /// @param _calculationLogic JavaScript that can calculate the amount of ETH owed for a pledge
   /// @param _checkLogic JavaScript that verifies the senders identity with GitHub and returns the repositories to pay out for
-  function initialize(address _oracle, string calldata _calculationLogic, string calldata _checkLogic) public initializer {
-    setOracle(_oracle);
+  function initialize(bytes32 _donId, string calldata _calculationLogic, string calldata _checkLogic) public initializer {
+    donId = _donId;
     calculationLogic = _calculationLogic;
     checkLogic = _checkLogic;
     __Ownable_init();
@@ -52,31 +54,31 @@ contract Ledger is Initializable, UUPSUpgradeable, OwnableUpgradeable, Functions
     string calldata _amount,
     uint64 subscriptionId
   ) external returns (bytes32) {
-    Functions.Request memory req;
-    req.initializeRequest(Functions.Location.Inline, Functions.CodeLanguage.JavaScript, calculationLogic);
+    FunctionsRequest.Request memory req;
+    req.initializeRequest(FunctionsRequest.Location.Inline, FunctionsRequest.CodeLanguage.JavaScript, calculationLogic);
     string[] memory args = new string[](4);
     args[0] = _repository;
     args[1] = _metric;
     args[2] = _target;
     args[3] = _amount;
-    req.addArgs(args);
+    req.setArgs(args);
 
-    bytes32 assignedReqID = sendRequest(req, subscriptionId, 300000);
+    bytes32 assignedReqID = _sendRequest(req.encodeCBOR(), subscriptionId, 300000, donId);
 
     return assignedReqID;
   }
 
   /// @notice Can be called by maintainers to claim donations made to their repositories
   function claim(string calldata _gist, uint64 subscriptionId) public {
-    Functions.Request memory req;
-    req.initializeRequest(Functions.Location.Inline, Functions.CodeLanguage.JavaScript, checkLogic);
+    FunctionsRequest.Request memory req;
+    req.initializeRequest(FunctionsRequest.Location.Inline, FunctionsRequest.CodeLanguage.JavaScript, checkLogic);
 
     string[] memory args = new string[](2);
     args[0] = _gist;
     args[1] = Strings.toHexString(uint256(uint160(msg.sender)), 20);
 
-    req.addArgs(args);
-    bytes32 assignedReqID = sendRequest(req, subscriptionId, 300000);
+    req.setArgs(args);
+    bytes32 assignedReqID = _sendRequest(req.encodeCBOR(), subscriptionId, 300000, donId);
     runningClaims[assignedReqID] = msg.sender;
   }
 
@@ -151,13 +153,6 @@ contract Ledger is Initializable, UUPSUpgradeable, OwnableUpgradeable, Functions
       string memory login = string(response);
       finalizeClaim(payable(runningClaims[requestId]), login);
     }
-  }
-
-  /// @notice Allows the Functions oracle address to be updated
-  ///
-  /// @param oracle New oracle address
-  function updateOracleAddress(address oracle) public onlyOwner {
-    setOracle(oracle);
   }
 
   /// @notice View to see which donations are still open
