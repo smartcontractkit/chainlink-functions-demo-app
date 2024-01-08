@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import "./dev/functions/FunctionsClient.sol";
+import {FunctionsClient} from "@chainlink/contracts/src/v0.8/functions/dev/v1_0_0/FunctionsClient.sol";
+import {FunctionsRequest} from "@chainlink/contracts/src/v0.8/functions/dev/v1_0_0/libraries/FunctionsRequest.sol";
 
 contract GitHubFunctions is FunctionsClient {
-  using Functions for Functions.Request;
+  using FunctionsRequest for FunctionsRequest.Request;
 
   event OCRResponse(bytes32 indexed requestId, bytes result, bytes err);
 
@@ -12,8 +13,10 @@ contract GitHubFunctions is FunctionsClient {
   bytes32 public latestRequestId;
   bytes public latestResponse;
   bytes public latestError;
+  bytes32 public donId;
 
-  constructor(address oracle, string memory _calculationLogic) FunctionsClient(oracle) {
+  constructor(address oracle, bytes32 _donId, string memory _calculationLogic) FunctionsClient(oracle) {
+    donId = _donId;
     calculationLogic = _calculationLogic;
   }
 
@@ -22,11 +25,11 @@ contract GitHubFunctions is FunctionsClient {
     uint64 subscriptionId,
     uint32 gasLimit
   ) public returns (bytes32) {
-    Functions.Request memory req;
-    req.initializeRequest(Functions.Location.Inline, Functions.CodeLanguage.JavaScript, calculationLogic);
-    req.addArgs(args);
+    FunctionsRequest.Request memory req;
+    req.initializeRequest(FunctionsRequest.Location.Inline, FunctionsRequest.CodeLanguage.JavaScript, calculationLogic);
+    req.setArgs(args);
 
-    bytes32 assignedReqID = sendRequest(req, subscriptionId, gasLimit);
+    bytes32 assignedReqID = _sendRequest(req.encodeCBOR(), subscriptionId, gasLimit, donId);
     latestRequestId = assignedReqID;
     return assignedReqID;
   }

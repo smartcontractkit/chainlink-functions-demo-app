@@ -26,11 +26,10 @@ A supported Node.js version. This project has been built using Node.js hydrogen.
 
 Run these from the project directory where you've cloned this repo.
 
-1. `pnpm install`
-  - No pnpm? No problem. `npm install -g pnpm` or npm / yarn classic work fine.
+1. `npm install` or `yarn install` to install all dependencies.
 2. Create a `.env` file, either by making a copy of `.env.example` or starting from scratch. See the chapter [Configuration](#configuration) for more details on the available settings.
   - You'll need to set at least the `PRIVATE_KEY` variable. To get your key: click on the MetaMask icon; click the three dots; go to account details; and export your private key.
-3. Generate and build all required files by running `pnpm build`. This downloads the required files, compiles the Solidity contracts and builds the Nextjs project.
+3. Generate and build all required files by running `npm build`. This downloads the required files, compiles the Solidity contracts and builds the Nextjs project.
 4. Deploy the Ledger contract with `npx hardhat project:deploy`.
 5. Store the returned address in the `NEXT_PUBLIC_CONTRACT_ADDRESS` environment variable.
 6. (optional) Verify the contract. This allows you to decode the bytecode on Polygonscan.
@@ -40,11 +39,11 @@ Run these from the project directory where you've cloned this repo.
   4. Copy your token and save it as the `ETHERSCAN_API_KEY` environment variable.
   5. Verify the contract with `npx hardhat verify --constructor-args arguments.js $NEXT_PUBLIC_CONTRACT_ADDRESS`. (Replace `$NEXT_PUBLIC_CONTRACT_ADDRESS` with your contract address if you don't have the address in your shell environment).
 
-7. Create a Chainlink Functions subscription and fund it. We have a task to simplify the basic setup and funding, run it with `npx hardhat project:fund`. For more information on how to manage your subscription, read [the official documentation](https://docs.chain.link/chainlink-functions/resources/subscriptions).
+7. Create a Chainlink Functions subscription and fund it [here](https://functions.chain.link).
 8. Store the subscription id in the `NEXT_PUBLIC_SUBSCRIPTION_ID` environment variable.
 9. Run the application.
   1. Serve the build.
-  2. Or run the dev server with `pnpm dev`.
+  2. Or run the dev server with `npm dev`.
 
 ### Configuration
 

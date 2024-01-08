@@ -32,18 +32,20 @@ task(
       encoding: 'utf-8',
     });
 
+    const donIdBytes32 = ethers.utils.formatBytes32String(networks?.[network.name].donId)
+
     if (!proxyAddress) {
       const ledger = await upgrades.deployProxy(
         factory,
         [
-          networks?.[network.name].functionsOracleProxy,
+          donIdBytes32,
           calculateScript,
           checkScript,
         ],
         {
           initializer: 'initialize',
-          constructorArgs: [networks?.[network.name].functionsOracleProxy],
-          unsafeAllow: ['constructor'],
+          constructorArgs: [networks?.[network.name].functionsRouter],
+          unsafeAllow: ['constructor', 'state-variable-immutable'],
           kind: 'uups',
         }
       );
@@ -52,7 +54,7 @@ task(
       console.log('Ledger deployed to:', ledger.address);
     } else {
       const ledger = await upgrades.upgradeProxy(proxyAddress, factory, {
-        constructorArgs: [networks?.[network.name].functionsOracleProxy],
+        constructorArgs: [networks?.[network.name].functionsRouter],
         unsafeAllow: ['constructor'],
         kind: 'uups',
       });
