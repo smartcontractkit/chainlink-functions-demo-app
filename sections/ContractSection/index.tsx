@@ -64,7 +64,11 @@ const ContractSection = () => {
         let result: { args: [string, string, string] } | undefined;
         const started = Date.now();
         while (!result && Date.now() - started < 60_000) {
-          const events = await ledger.queryFilter(ledger.filters.OCRResponse()); // Only get the relevant events
+          // Only get the relevant events
+          const events = await ledger.queryFilter(
+            ledger.filters.OCRResponse(),
+            calculationReceiptTx.blockNumber
+          );
           result = events.find((event) => event.args?.[0] === requestId) as
             | { args: [string, string, string] }
             | undefined;
