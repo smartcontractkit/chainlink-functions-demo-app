@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "hardhat compile && next dev",
     "build": "hardhat compile && next build",
+    "deploy": "hardhat project:deploy",
     "start": "next start",
     "lint": "next lint",
     "test": "jest"
@@ -31,8 +32,7 @@
     "react-gtm-module": "^2.0.11",
     "readline-promise": "^1.0.5",
     "ts-node": "^10.9.1",
-    "vm2": "^3.9.16",
-    "wagmi": "^0.12.0"
+    "vm2": "^3.9.16"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
