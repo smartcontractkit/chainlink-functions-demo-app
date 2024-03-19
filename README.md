@@ -30,7 +30,7 @@ Run these from the project directory where you've cloned this repo.
 2. Create a `.env` file, either by making a copy of `.env.example` or starting from scratch. See the chapter [Configuration](#configuration) for more details on the available settings.
   - You'll need to set at least the `PRIVATE_KEY` variable. To get your key: click on the MetaMask icon; click the three dots; go to account details; and export your private key.
 3. Generate and build all required files by running `npm build`. This downloads the required files, compiles the Solidity contracts and builds the Nextjs project.
-4. Deploy the Ledger contract with `npx hardhat project:deploy`.
+4. Deploy the Ledger contract with `npm deploy`.
 5. Store the returned address in the `NEXT_PUBLIC_CONTRACT_ADDRESS` environment variable.
 6. (optional) Verify the contract. This allows you to decode the bytecode on Polygonscan.
   1. Create an account on [Polygonscan](polygonscan.com). Note that you'll need to create an account for the main network, which works just as well for the testnet.
