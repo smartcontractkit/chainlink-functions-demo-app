@@ -10,6 +10,10 @@ Chainlink Functions is used to determine the total donation amount by multiplyin
 
 **NOTE**: This example is not production ready, as edge cases are not handled.
 
+**Production Deployment**: https://functions-demo.app
+
+**Vercel Deployment**: https://functions-demo-app.vercel.app
+
 ## Usage
 
 ### Prerequisites
